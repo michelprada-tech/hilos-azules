@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hilos Azules | El arte de acompañarnos en el mundo azul</title>
+  <!-- Tipografías cálidas y legibles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       MANUAL DE MARCA: PALETA DE COLORES "HILOS AZULES"
+       ========================================================================== */
+    :root {
+      --azul-profundo: #1E3A5F;
+      --azul-cielo: #87CEEB;
+      --azul-cobalto: #0047AB;
+      --violeta: #7B5EA7;
+      --arena: #F7F5F0;
+      --arena-oscura: #EBE7DE;
+      --gris-pizarra: #4A5568;
+      --blanco-suave: #FDFCFA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    body {
+      background-color: var(--arena);
+      color: var(--gris-pizarra);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+      /* Sutil textura de tejido/papel cálido en el fondo */
+      background-image: 
+        radial-gradient( rgba(30, 58, 95, 0.03) 1px, transparent 0 ),
+        radial-gradient( rgba(123, 94, 167, 0.03) 1px, transparent 0 );
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    h1, h2, h3, .serif-quote {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--azul-profundo);
+    }
+
+    /* ==========================================================================
+       BARRA DE PROGRESO DE HILO SUPERIOR
+       ========================================================================== */
+    .yarn-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--azul-cielo), var(--azul-cobalto), var(--violeta));
+      width: 0%;
+      z-index: 1000;
+      box-shadow: 0 1px 6px rgba(0, 71, 171, 0.25);
+      will-change: width;
+    }
+
+    /* ==========================================================================
+       NAVBAR MINIMALISTA
+       ========================================================================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(247, 245, 240, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px dashed rgba(30, 58, 95, 0.12);
+      padding: 0.9rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .brand-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      color: var(--violeta);
+      letter-spacing: 0.04em;
+      margin-top: -6px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--azul-profundo);
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+
+    nav a:hover {
+      color: var(--azul-cobalto);
+    }
+
+    .btn-cta {
+      background-color: var(--azul-cobalto);
+      color: #fff !important;
+      padding: 0.6rem 1.35rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      box-shadow: 0 4px 14px rgba(0, 71, 171, 0.22);
+      border: 2px dashed rgba(255, 255, 255, 0.35);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--azul-profundo);
+      box-shadow: 0 8px 20px rgba(0, 71, 171, 0.32);
+    }
+
+    /* ==========================================================================
+       HERO SECTION: LA GRAN MADEJA Y EL PEQUEÑO PLANETA EN CROCHET
+       ========================================================================== */
+    .hero {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 3.5rem 5% 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-crochet {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(135, 206, 235, 0.22);
+      color: var(--azul-profundo);
+      padding: 0.4rem 1.1rem;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1.5px dashed var(--azul-cobalto);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+      color: var(--azul-profundo);
+    }
+
+    .hero h1 span {
+      color: var(--azul-cobalto);
+      font-style: italic;
+    }
+
+    .hero p.lead {
+      max-width: 680px;
+      margin: 0 auto 2.2rem;
+      font-size: 1.08rem;
+      color: var(--gris-pizarra);
+    }
+
+    /* ==========================================================================
+       ESCENARIO CINEMATOGRÁFICO EN CROCHET 3D (PORTADA VIVA CON VIDEO)
+       ========================================================================== */
+    .crochet-stage-theater {
+      background: linear-gradient(180deg, #132439 0%, #1E3A5F 60%, #15273F 100%);
+      border-radius: 32px;
+      padding: 1.25rem 1.25rem 1.4rem;
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: 
+        0 24px 60px rgba(18, 38, 66, 0.32),
+        0 4px 16px rgba(0, 71, 171, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      border: 3.5px dashed rgba(135, 206, 235, 0.55);
+      color: var(--arena);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .theater-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+      padding: 0 0.4rem;
+    }
+
+    .theater-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--azul-cielo);
+      letter-spacing: 0.02em;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #48BB78;
+      box-shadow: 0 0 10px #48BB78;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .theater-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .theater-btn {
+      background: rgba(247, 245, 240, 0.12);
+      color: #F7F5F0;
+      border: 1.5px solid rgba(135, 206, 235, 0.45);
+      padding: 0.42rem 0.95rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      will-change: transform;
+    }
+
+    .theater-btn:hover {
+      background: rgba(135, 206, 235, 0.28);
+      border-color: var(--azul-cielo);
+      box-shadow: 0 4px 12px rgba(0, 71, 171, 0.3);
+    }
+
+    .theater-btn.btn-sound.active {
+      background: var(--azul-cobalto);
+      border-color: #87CEEB;
+      box-shadow: 0 0 16px rgba(0, 71, 171, 0.6);
+    }
+
+    .theater-screen-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0D1927;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 2px solid rgba(135, 206, 235, 0.3);
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .theater-screen-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .theater-ambient-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 10%, transparent 60%, rgba(19, 36, 57, 0.45) 100%);
+      box-shadow: inset 0 0 50px rgba(10, 20, 32, 0.5);
+    }
+
+    .theater-quote-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(19, 36, 57, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px dashed rgba(135, 206, 235, 0.5);
+      padding: 0.65rem 1.3rem;
+      border-radius: 50px;
+      color: #F7F5F0;
+      font-size: 0.88rem;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      animation: floatBadge 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -4px); }
+    }
+
+    .theater-quote-badge .quote-icon {
+      color: var(--azul-cielo);
+      font-size: 1.1rem;
+      margin: 0 4px;
+    }
+
+    .theater-footer {
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      color: rgba(247, 245, 240, 0.75);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    /* ==========================================================================
+       LA GRAN MADEJA 3D HIPERREALISTA
+       ========================================================================== */
+    .skein-wrapper {
+      margin: 2.2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .skein-3d-stage {
+      position: relative;
+      width: 145px;
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      perspective: 900px;
+    }
+
+    .skein-3d-shadow {
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(16, 32, 54, 0.45) 0%, rgba(16, 32, 54, 0) 70%);
+      filter: blur(5px);
+      z-index: 1;
+      pointer-events: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .skein-3d-img {
+      position: relative;
+      z-index: 2;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: drop-shadow(0 14px 22px rgba(18, 38, 66, 0.35));
+      transition: filter 0.25s ease;
+      will-change: transform;
+      user-select: none;
+    }
+
+    .skein-3d-stage:hover .skein-3d-img {
+      filter: drop-shadow(0 20px 30px rgba(0, 71, 171, 0.45));
+    }
+
+    .skein-3d-glow {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(135, 206, 235, 0.35) 0%, transparent 70%);
+      filter: blur(16px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .skein-tail-svg {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 35px;
+      z-index: 3;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .scroll-hint {
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--azul-cobalto);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      animation: floatSlow 2.5s ease-in-out infinite;
+    }
+
+    .scroll-hint .scroll-arrow {
+      font-size: 1.15rem;
+      color: var(--azul-cobalto);
+      font-weight: bold;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ==========================================================================
+       EL CAMINO TEJIDO (SCROLLYTELLING CON HILO EN TIEMPO REAL)
+       ========================================================================== */
+    .story-journey {
+      position: relative;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 2rem 5% 4rem;
+    }
+
+    /* Contenedor del Hilo SVG que se desenrolla al hacer scroll */
+    .yarn-path-svg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 240px;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .chapter-list {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 5.5rem;
+      padding-top: 2rem;
+    }
+
+    .chapter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .chapter-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .chapter-card {
+      background: var(--blanco-suave);
+      border-radius: 26px;
+      padding: 2.2rem;
+      width: calc(50% - 45px);
+      box-shadow: 0 12px 32px rgba(30, 58, 95, 0.07);
+      border: 2px dashed rgba(123, 94, 167, 0.28);
+      position: relative;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .chapter-card:hover {
+      box-shadow: 0 18px 38px rgba(30, 58, 95, 0.12);
+      border-color: rgba(0, 71, 171, 0.45);
+    }
+
+    /* Nudo/Botón de crochet en el centro del camino */
+    .yarn-node {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--arena);
+      border: 3px solid var(--azul-cobalto);
+      box-shadow: 0 0 0 6px rgba(135, 206, 235, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--azul-profundo);
+      z-index: 3;
+      flex-shrink: 0;
+      transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+
+    .yarn-node.active {
+      background: var(--azul-cobalto);
+      color: #fff;
+      border-color: var(--violeta);
+      box-shadow: 0 0 0 8px rgba(123, 94, 167, 0.28), 0 0 18px rgba(135, 206, 235, 0.6);
+    }
+
+    /* Ilustración de cada capítulo en tarjeta tejida */
+    .chapter-illustration {
+      width: calc(50% - 45px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .amigurumi-frame {
+      background: linear-gradient(145deg, #1E3A5F, #2B4C7E);
+      border-radius: 24px;
+      padding: 1.2rem;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      border: 3px dashed var(--azul-cielo);
+      box-shadow: 0 16px 36px rgba(30, 58, 95, 0.18);
+      color: var(--arena);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .amigurumi-frame:hover {
+      box-shadow: 0 22px 44px rgba(30, 58, 95, 0.28);
+      border-color: #fff;
+    }
+
+    .amigurumi-photo-inner {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #0E1D2E;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .amigurumi-story-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .amigurumi-frame:hover .amigurumi-story-img {
+      transform: scale(1.05);
+    }
+
+    .yarn-corner-stitch {
+      position: absolute;
+      font-size: 1.1rem;
+      z-index: 2;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+    }
+    .yarn-corner-stitch.tl { top: 8px; left: 8px; }
+    .yarn-corner-stitch.tr { top: 8px; right: 8px; }
+    .yarn-corner-stitch.br { bottom: 8px; right: 8px; }
+
+    .amigurumi-frame svg {
+      width: 100%;
+      max-height: 210px;
+    }
+
+    .amigurumi-caption {
+      font-size: 0.82rem;
+      color: var(--azul-cielo);
+      margin-top: 0.8rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .chapter-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--violeta);
+      background: rgba(135, 94, 167, 0.12);
+      padding: 0.28rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter-card h2 {
+      font-size: 1.85rem;
+      line-height: 1.2;
+      margin-bottom: 0.9rem;
+    }
+
+    .chapter-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.22rem;
+      font-style: italic;
+      color: var(--azul-profundo);
+      border-left: 3px solid var(--azul-cielo);
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+
+    /* Acordeón fluido controlado por GSAP */
+    .chapter-more {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      font-size: 0.95rem;
+      will-change: height, opacity;
+    }
+
+    .chapter-more-inner {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(74, 85, 104, 0.25);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--azul-profundo);
+      color: var(--azul-profundo);
+      padding: 0.48rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--azul-profundo);
+      color: #fff;
+    }
+
+    .btn-audio {
+      background: rgba(135, 206, 235, 0.25);
+      border: 1.5px solid var(--azul-cobalto);
+      color: var(--azul-profundo);
+      padding: 0.48rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+
+    .btn-audio.playing {
+      background: var(--violeta);
+      border-color: var(--violeta);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(123, 94, 167, 0.35);
+    }
+
+    /* Mini Ecualizador de 4 hebras verticales para la voz de Andrea */
+    .audio-equalizer {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+      width: 16px;
+    }
+
+    .audio-equalizer .eq-strand {
+      width: 2.5px;
+      background: currentColor;
+      border-radius: 2px;
+      animation: eqPulse 0.85s ease-in-out infinite alternate;
+    }
+
+    .audio-equalizer .eq-strand:nth-child(1) { height: 45%; animation-delay: 0s; }
+    .audio-equalizer .eq-strand:nth-child(2) { height: 100%; animation-delay: 0.18s; }
+    .audio-equalizer .eq-strand:nth-child(3) { height: 65%; animation-delay: 0.34s; }
+    .audio-equalizer .eq-strand:nth-child(4) { height: 85%; animation-delay: 0.12s; }
+
+    @keyframes eqPulse {
+      0% { transform: scaleY(0.3); opacity: 0.75; }
+      100% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* ==========================================================================
+       SECCIÓN DE PROTAGONISTAS EN CROCHET 3D (EFECTO POP-OUT HIPERREALISTA)
+       ========================================================================== */
+    .characters-section {
+      background: var(--arena-oscura);
+      padding: 5rem 5% 6rem;
+      border-top: 2px dashed rgba(30, 58, 95, 0.15);
+      border-bottom: 2px dashed rgba(30, 58, 95, 0.15);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .characters-container-wrapper {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* Hilo SVG luminoso que conecta horizontalmente a los 3 personajes */
+    .yarn-horizontal-thread {
+      position: absolute;
+      top: 155px;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 0 6px rgba(135, 206, 235, 0.65));
+      animation: pulseThread 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseThread {
+      0%, 100% { opacity: 0.75; }
+      50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(0, 71, 171, 0.8)); }
+    }
+
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2.8rem 2.2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Tarjeta 3D con Perspectiva */
+    .character-card-3d {
+      perspective: 1200px;
+      position: relative;
+      will-change: transform, opacity;
+    }
+
+    .card-inner-3d {
+      background: var(--blanco-suave);
+      border-radius: 28px;
+      padding: 2.2rem 1.8rem 2.4rem;
+      text-align: center;
+      border: 2px dashed rgba(0, 71, 171, 0.22);
+      box-shadow: 
+        0 14px 35px rgba(30, 58, 95, 0.08),
+        0 2px 8px rgba(30, 58, 95, 0.04);
+      transform-style: preserve-3d;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .character-card-3d:hover .card-inner-3d {
+      box-shadow: 
+        0 26px 55px rgba(30, 58, 95, 0.16),
+        0 0 25px rgba(135, 206, 235, 0.35);
+      border-color: var(--azul-cobalto);
+    }
+
+    /* Halo ambiental según el personaje */
+    .card-glass-glow {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+      transition: opacity 0.3s ease;
+      will-change: transform;
+    }
+
+    .glow-cobalto { background: radial-gradient(circle, rgba(0, 71, 171, 0.35), transparent 70%); }
+    .glow-cielo { background: radial-gradient(circle, rgba(135, 206, 235, 0.55), transparent 70%); }
+    .glow-violeta { background: radial-gradient(circle, rgba(123, 94, 167, 0.45), transparent 70%); }
+
+    .character-card-3d:hover .card-glass-glow {
+      opacity: 0.85;
+    }
+
+    /* Marco/Portal Arqueado de los Protagonistas (Perfectamente Centrado) */
+    .character-portrait-frame {
+      width: 100%;
+      max-width: 240px;
+      height: 255px;
+      margin: 0 auto 1.5rem;
+      border-radius: 120px 120px 24px 24px;
+      background: radial-gradient(circle at 50% 30%, #22436C 0%, #15273F 100%);
+      border: 3.5px dashed var(--azul-cielo);
+      box-shadow: 
+        0 14px 28px rgba(18, 38, 66, 0.22),
+        inset 0 2px 10px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transition: box-shadow 0.35s ease, border-color 0.35s ease;
+      will-change: transform;
+    }
+
+    .character-card-3d:hover .character-portrait-frame {
+      border-color: var(--azul-cobalto);
+      box-shadow: 0 20px 38px rgba(18, 38, 66, 0.3);
+    }
+
+    .character-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+      will-change: transform;
+    }
+
+    .card-content-3d {
+      transform: translateZ(25px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .character-role {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--violeta);
+      letter-spacing: 0.07em;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-content-3d h3 {
+      font-size: 1.85rem;
+      color: var(--azul-profundo);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-content-3d p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--gris-pizarra);
+      margin-bottom: 0.85rem;
+    }
+
+    .character-meta-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .yarn-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      background: var(--arena);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      color: var(--azul-profundo);
+      font-weight: 600;
+      border: 1px dashed rgba(30, 58, 95, 0.18);
+    }
+
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .character-tag-pill {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-size: 0.72rem;
+      color: var(--azul-cobalto);
+      background: rgba(135, 206, 235, 0.22);
+      padding: 0.22rem 0.78rem;
+      border-radius: 50px;
+      font-weight: 600;
+      border: 1px solid rgba(0, 71, 171, 0.2);
+    }
+
+    /* ==========================================================================
+       CIERRE: EL CORAZÓN TEJIDO Y COMUNIDAD
+       ========================================================================== */
+    .heart-finale {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4.5rem 5% 5rem;
+      text-align: center;
+    }
+
+    .heart-logo-showcase {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 1.5rem;
+      background: var(--blanco-suave);
+      border-radius: 50%;
+      box-shadow: 0 14px 35px rgba(30, 58, 95, 0.09);
+      border: 2px dashed rgba(123, 94, 167, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+    }
+
+    .newsletter-box {
+      margin-top: 2rem;
+      background: var(--blanco-suave);
+      padding: 2rem;
+      border-radius: 24px;
+      border: 2px dashed var(--azul-cielo);
+      box-shadow: 0 10px 25px rgba(30, 58, 95, 0.06);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.8rem;
+      max-width: 480px;
+      margin: 1.2rem auto 0;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.75rem 1.2rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(30, 58, 95, 0.25);
+      background: var(--arena);
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+
+    /* Paleta flotante de referencia del Manual de Marca */
+    .brand-palette-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2.8rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed rgba(30, 58, 95, 0.15);
+    }
+
+    .color-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      background: #fff;
+      padding: 4px 10px;
+      border-radius: 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* Responsive para celular */
+    @media (max-width: 820px) {
+      nav ul { display: none; }
+      .yarn-path-svg { left: 28px; transform: none; width: 60px; }
+      .chapter-row, .chapter-row.reverse {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 55px;
+        gap: 1.2rem;
+      }
+      .chapter-card, .chapter-illustration {
+        width: 100%;
+      }
+      .yarn-node {
+        position: absolute;
+        left: 0;
+      }
+      .theater-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .theater-quote-badge {
+        white-space: normal;
+        font-size: 0.78rem;
+        width: 92%;
+        padding: 0.45rem 0.8rem;
+        bottom: 10px;
+        line-height: 1.35;
+      }
+      .yarn-horizontal-thread {
+        display: none;
+      }
+      .characters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior que se teje al bajar -->
+  <div class="yarn-progress-bar" id="progressBar"></div>
+
+  <!-- NAVBAR -->
+  <header>
+    <a href="#" class="brand-logo">
+      <!-- Isotipo del Corazón Incompleto de Hilos Azules -->
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 35 Q 30 10, 50 35 T 90 35" stroke="#87CEEB" stroke-width="2.5" fill="none" opacity="0.7"/>
+        <path d="M10 60 Q 30 85, 50 60 T 90 60" stroke="#7B5EA7" stroke-width="2.5" fill="none" opacity="0.6"/>
+        <path d="M50 32 C 55 12, 88 12, 88 42 C 88 65, 62 78, 50 92" stroke="#1E3A5F" stroke-width="4" stroke-linecap="round"/>
+        <path d="M52 32 C 57 14, 86 14, 86 42 C 86 64, 61 77, 51 90" stroke="#7B5EA7" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="50" cy="32" r="4.5" fill="#1E3A5F"/>
+        <circle cx="50" cy="92" r="4.5" fill="#1E3A5F"/>
+      </svg>
+      <div>
+        <span class="brand-title">Hilos Azules</span>
+        <span class="brand-subtitle">El arte de acompañarnos en el mundo azul</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#camino">El Camino Tejido</a></li>
+        <li><a href="#protagonistas">Protagonistas en Crochet</a></li>
+        <li><a href="#comunidad">Comunidad</a></li>
+        <li><a href="#camino" class="btn-cta">Desenrollar la Historia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="badge-crochet">
+      🧶 Historia interactiva tejida al crochet · Basada en hechos reales
+    </div>
+    <h1>El arte de acompañarnos en el <span>mundo azul</span></h1>
+    <p class="lead">
+      Bienvenidos a nuestra historia real, sin filtros. Acompaña a <strong>Andrea</strong> y a sus dos pequeños príncipes, <strong>Gabo y Jero</strong>, a través de una gran madeja de lana azul que se desenrolla capítulo a capítulo para recordarnos que se puede encontrar paz al mirar a los ojos a nuestros hijos.
+    </p>
+
+    <!-- Escenario Cinematográfico en Crochet 3D (Portada Viva con Video e Historia) -->
+    <div class="crochet-stage-theater" id="heroTheater">
+      <div class="theater-bar">
+        <div class="theater-badge">
+          <span class="live-dot"></span>
+          <span>Hilos Azules</span>
+        </div>
+        <div class="theater-actions">
+          <button class="theater-btn btn-sound" id="heroSoundBtn" onclick="toggleHeroSound()" title="Activar/Desactivar sonido con la voz de Andrea">
+            <span id="soundIcon">🔇</span>
+            <span id="soundLabel">Escuchar voz de Andrea</span>
+          </button>
+          <button class="theater-btn btn-play" id="heroPlayBtn" onclick="toggleHeroPlay()" title="Pausar o reanudar video">
+            <span id="playIcon">⏸</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="theater-screen-wrapper">
+        <video 
+          id="heroCrochetVideo" 
+          src="video1.mp4" 
+          poster="video_poster.jpg"
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          preload="auto">
+        </video>
+        <div class="theater-ambient-glow"></div>
+        <div class="theater-quote-badge">
+          <span class="quote-icon">❝</span>
+          <span class="quote-text">Hilos azules que nos unen... Cuidando a mis pequeños príncipes en su propio universo</span>
+          <span class="quote-icon">❞</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LA GRAN MADEJA 3D HIPERREALISTA QUE INICIA EL CAMINO -->
+    <div class="skein-wrapper">
+      <div class="skein-3d-stage" id="yarnSkeinStage" title="La Gran Madeja Azul">
+        <div class="skein-3d-glow"></div>
+        <div class="skein-3d-shadow"></div>
+        <img src="madeja_ball.png" alt="La Gran Madeja de Lana Azul 3D" class="skein-3d-img" id="yarnSkein" loading="lazy">
+        <svg class="skein-tail-svg" viewBox="0 0 40 35">
+          <path d="M 20 2 Q 24 18, 20 34" stroke="#0047AB" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <path d="M 20 2 Q 24 18, 20 34" stroke="#87CEEB" stroke-width="3" stroke-dasharray="5 3" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="scroll-hint">
+        <span>Haz scroll para desenrollar la Gran Madeja Azul</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PRINCIPAL: EL CAMINO TEJIDO (CAPÍTULOS) -->
+  <section class="story-journey" id="camino">
+    <!-- SVG del Hilo 3D Hiperrealista (Múltiples hebras entrelazadas con volumen) -->
+    <svg class="yarn-path-svg" viewBox="0 0 240 1600" preserveAspectRatio="none">
+      <defs>
+        <!-- Degradado de lana profunda -->
+        <linearGradient id="yarnCoreGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#0047AB" />
+          <stop offset="45%" stop-color="#1E3A5F" />
+          <stop offset="75%" stop-color="#0047AB" />
+          <stop offset="100%" stop-color="#7B5EA7" />
+        </linearGradient>
+        
+        <!-- Degradado de hebra celeste de brillo -->
+        <linearGradient id="yarnHighlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#87CEEB" />
+          <stop offset="60%" stop-color="#A5DBF5" />
+          <stop offset="100%" stop-color="#C5B0E8" />
+        </linearGradient>
+
+        <!-- Filtro de relieve y sombra suave para el hilo -->
+        <filter id="yarn3dDepth" x="-20%" y="-10%" width="140%" height="120%">
+          <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="rgba(18, 38, 66, 0.28)" />
+        </filter>
+      </defs>
+
+      <!-- 1. Guía punteada sutil del camino -->
+      <path d="M 120 0 C 210 200, 30 400, 120 600 C 210 800, 30 1000, 120 1200 C 190 1350, 80 1480, 120 1600" 
+            stroke="rgba(30, 58, 95, 0.12)" stroke-width="4" stroke-dasharray="8 8" fill="none"/>
+
+      <!-- 2. Capa de Sombra Volumétrica profunda del hilo -->
+      <path id="yarnShadow"
+            d="M 120 0 C 210 200, 30 400, 120 600 C 210 800, 30 1000, 120 1200 C 190 1350, 80 1480, 120 1600" 
+            stroke="rgba(20, 42, 70, 0.2)" stroke-width="12" stroke-linecap="round" fill="none" transform="translate(0, 4)"/>
+
+      <!-- 3. Cordón Principal de Lana Azul Cobalto (Grosor y Volumen 3D) -->
+      <path id="animatedYarn"
+            d="M 120 0 C 210 200, 30 400, 120 600 C 210 800, 30 1000, 120 1200 C 190 1350, 80 1480, 120 1600" 
+            stroke="url(#yarnCoreGrad)" stroke-width="9" stroke-linecap="round" fill="none" filter="url(#yarn3dDepth)"/>
+
+      <!-- 4. Hebra Entrelazada Secundaria (Torsión de lana Azul Cielo) -->
+      <path id="yarnPlyHighlight"
+            d="M 120 0 C 210 200, 30 400, 120 600 C 210 800, 30 1000, 120 1200 C 190 1350, 80 1480, 120 1600" 
+            stroke="url(#yarnHighlightGrad)" stroke-width="3.5" stroke-dasharray="10 7" stroke-linecap="round" fill="none"/>
+
+      <!-- 5. Fibras de acento violeta tejidas al relieve -->
+      <path id="yarnPlyViolet"
+            d="M 120 0 C 210 200, 30 400, 120 600 C 210 800, 30 1000, 120 1200 C 190 1350, 80 1480, 120 1600" 
+            stroke="#7B5EA7" stroke-width="2" stroke-dasharray="4 14" stroke-linecap="round" fill="none"/>
+
+      <!-- 6. Nudo/Aguja luminosa que viaja en la punta activa del hilo -->
+      <g id="yarnTraveler" opacity="0">
+        <circle cx="0" cy="0" r="8" fill="#87CEEB" filter="drop-shadow(0 0 8px #87CEEB)"/>
+        <circle cx="0" cy="0" r="4.5" fill="#F7F5F0"/>
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#0047AB" stroke-width="2" stroke-dasharray="3 3"/>
+      </g>
+    </svg>
+
+    <div class="chapter-list">
+
+      <!-- PARADA 1: INTRODUCCIÓN -->
+      <article class="chapter-row">
+        <div class="chapter-card">
+          <span class="chapter-tag">Inicio del Hilo · Introducción</span>
+          <h2>Mi historia, nuestra historia</h2>
+          <p>
+            Bienvenidos a este espacio. Antes de dar consejos o hablar de herramientas, quiero que conozcas lo que hemos vivido durante estos primeros cinco años en el mundo de la neurodiversidad.
+          </p>
+          <blockquote class="chapter-quote">
+            “Sé qué dolor sientes; sé lo que es tener el alma rota… Aquí estamos para aprender juntos y descubrir que se puede encontrar paz al mirar a los ojos a nuestros hijos.”
+          </blockquote>
+          <div class="chapter-more" id="more-intro">
+            <div class="chapter-more-inner">
+              <p>
+                Te invito a ti, que hoy estás leyendo esta publicación y deseas conocer más sobre el autismo, o que quizás estás iniciando este proceso que duele. Semana tras semana iremos tejiendo cada capítulo sin filtros.
+              </p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-outline" onclick="toggleChapter('more-intro', this)">Leer más</button>
+            <button class="btn-audio" data-default-label="Escuchar relato de Andrea" onclick="simulateAudio(this, 'Introducción: Mi historia, nuestra historia')">
+              <span>▶</span> Escuchar relato de Andrea
+            </button>
+          </div>
+        </div>
+
+        <div class="yarn-node active">01</div>
+
+        <div class="chapter-illustration">
+          <div class="amigurumi-frame">
+            <!-- Ilustración Crochet Parada 1: Manos de lana sosteniendo un corazón de hilo -->
+            <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="130" cy="80" r="58" fill="rgba(135,206,235,0.12)" stroke="#87CEEB" stroke-dasharray="5 5"/>
+              <path d="M130 52 C 135 32, 168 32, 168 60 C 168 85, 140 100, 130 115 C 120 100, 92 85, 92 60 C 92 32, 125 32, 130 52 Z" 
+                    fill="none" stroke="#87CEEB" stroke-width="4" stroke-dasharray="8 4"/>
+              <circle cx="130" cy="52" r="5" fill="#7B5EA7"/>
+              <circle cx="130" cy="115" r="5" fill="#7B5EA7"/>
+            </svg>
+            <div class="amigurumi-caption">Un refugio tejido para aprender juntos semana tras semana.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PARADA 2: CAPÍTULO 1 -->
+      <article class="chapter-row reverse">
+        <div class="chapter-card">
+          <span class="chapter-tag">Capítulo 1</span>
+          <h2>Dos niños, un diagnóstico y el dolor que no se maquilla</h2>
+          <p>
+            Soy <strong>Andrea Flórez Pulecio</strong>, psicóloga con más de 20 años en el mundo de la estructura y los procesos. Pero nada te prepara para el día en que la vida cambia de rumbo: hoy soy mamá de dos niños con autismo nivel 3. Sí… dos.
+          </p>
+          <blockquote class="chapter-quote">
+            “¿Lo he aceptado? Sí, para poder acompañarlos, estar presente y ser su guía. Pero no vine a maquillar la realidad: no ha dejado de doler ni un solo momento.”
+          </blockquote>
+          <div class="chapter-more" id="more-cap1">
+            <div class="chapter-more-inner">
+              <p>
+                Cuando nació Gabo (hoy de 5 años) imaginé mil cosas menos esta aventura. Al año y dos meses llegó Jero. Me he preguntado mil veces <em>'¿Por qué a nosotros? ¿Por qué los dos?'</em>. Aceptarlo con amor es el primer hilo para fortalecer su proceso.
+              </p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-outline" onclick="toggleChapter('more-cap1', this)">Leer más</button>
+            <button class="btn-audio" data-default-label="Escuchar Capítulo 1" onclick="simulateAudio(this, 'Capítulo 1: Dos niños, un diagnóstico')">
+              <span>▶</span> Escuchar Capítulo 1
+            </button>
+          </div>
+        </div>
+
+        <div class="yarn-node">02</div>
+
+        <div class="chapter-illustration">
+          <div class="amigurumi-frame amigurumi-frame-photo">
+            <div class="amigurumi-photo-inner">
+              <img src="Andrea_right.jpeg" alt="Andrea en tejido amigurumi hiperrealista" class="amigurumi-story-img" loading="lazy">
+              <div class="yarn-corner-stitch tl">🧶</div>
+              <div class="yarn-corner-stitch tr">✨</div>
+              <div class="yarn-corner-stitch br">💙</div>
+            </div>
+            <div class="amigurumi-caption">De la estructura a la guía amorosa: Andrea junto a Gabo y Jero.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PARADA 3: CAPÍTULO 2 -->
+      <article class="chapter-row">
+        <div class="chapter-card">
+          <span class="chapter-tag">Capítulo 2</span>
+          <h2>Las alarmas silenciosas y la llegada de Jero</h2>
+          <p>
+            Como mamá primeriza seguía aplicaciones de crianza mes a mes. Al llegar al mes 10, la notificación decía que Gabo ya debía decir <em>hola</em> y <em>chao</em> con la manito… y él no lo hacía. A veces reaccionaba a su nombre y otras veces no.
+          </p>
+          <blockquote class="chapter-quote">
+            “Mientras vivía con estas alarmas en la cabeza intentando descifrar qué pasaba, a los seis meses de nacido Gabo me enteré de que ya crecía en mí Jero.”
+          </blockquote>
+          <div class="chapter-more" id="more-cap2">
+            <div class="chapter-more-inner">
+              <p>
+                Intentando calmar el miedo que crecía en el pecho, me repetía: <em>'No pasa nada, cada niño lleva su propio ritmo'</em>. En medio de las dudas y con un nuevo embarazo en marcha, el mundo se ponía de colores que aún no alcanzaba a comprender.
+              </p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-outline" onclick="toggleChapter('more-cap2', this)">Leer más</button>
+            <button class="btn-audio" data-default-label="Escuchar Capítulo 2" onclick="simulateAudio(this, 'Capítulo 2: Las alarmas silenciosas')">
+              <span>▶</span> Escuchar Capítulo 2
+            </button>
+          </div>
+        </div>
+
+        <div class="yarn-node">03</div>
+
+        <div class="chapter-illustration">
+          <div class="amigurumi-frame">
+            <!-- Ilustración Crochet Parada 3: Dos pequeños príncipes entre estrellas tejidas -->
+            <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="130" cy="135" rx="95" ry="25" fill="#0047AB" stroke="#87CEEB" stroke-width="2.5" stroke-dasharray="6 4"/>
+              <!-- Dos estrellitas conectadas -->
+              <circle cx="105" cy="78" r="20" fill="#87CEEB" stroke="#F7F5F0" stroke-width="2" stroke-dasharray="4 2"/>
+              <circle cx="155" cy="86" r="16" fill="#7B5EA7" stroke="#F7F5F0" stroke-width="2" stroke-dasharray="4 2"/>
+              <path d="M125 78 Q140 65 145 82" stroke="#F7F5F0" stroke-width="3" fill="none"/>
+            </svg>
+            <div class="amigurumi-caption">Dos hermanitos separados por solo un año y dos meses en su universo azul.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PARADA 4: CAPÍTULO 3 -->
+      <article class="chapter-row reverse">
+        <div class="chapter-card">
+          <span class="chapter-tag">Capítulo 3</span>
+          <h2>El instinto que no se equivoca y el peso del silencio</h2>
+          <p>
+            Antes de ir al control del año con el neurólogo, mi instinto de madre y psicóloga ya lo sabía. Un día miré a mi esposo y le pregunté: <em>“¿Nuestro hijo es autista?”</em>. No hacía señas con su manita y era extremadamente selectivo con la alimentación.
+          </p>
+          <blockquote class="chapter-quote">
+            “Ese silencio es lo que más me ha marcado: no escuchar un ‘mamá, hola’, o el más soñado ‘te amo’. Ese silencio duele todos los días, pero también es el motor que nos sostiene.”
+          </blockquote>
+          <div class="chapter-more" id="more-cap3">
+            <div class="chapter-more-inner">
+              <p>
+                Recuerdo cuando Gabo balbuceaba y mi esposo preguntó con ilusión: <em>'¿Ya va a hablar?'</em>. Nunca ha generado palabras o frases de conexión, pero hemos aprendido a escucharnos con el alma y a tejernos más allá de la voz.
+              </p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-outline" onclick="toggleChapter('more-cap3', this)">Leer más</button>
+            <button class="btn-audio" data-default-label="Escuchar Capítulo 3" onclick="simulateAudio(this, 'Capítulo 3: El instinto y el peso del silencio')">
+              <span>▶</span> Escuchar Capítulo 3
+            </button>
+          </div>
+        </div>
+
+        <div class="yarn-node">04</div>
+
+        <div class="chapter-illustration">
+          <div class="amigurumi-frame">
+            <!-- Ilustración Crochet Parada 4: Constelación de conexión más allá de las palabras -->
+            <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+              <path d="M45 110 Q 130 25, 215 110" stroke="#87CEEB" stroke-width="3" stroke-dasharray="5 5" fill="none"/>
+              <polygon points="130,38 135,52 149,52 138,60 142,74 130,65 118,74 122,60 111,52 125,52" fill="#F7F5F0"/>
+              <circle cx="65" cy="95" r="8" fill="#87CEEB"/>
+              <circle cx="195" cy="95" r="8" fill="#7B5EA7"/>
+            </svg>
+            <div class="amigurumi-caption">Cuando las palabras callan, los hilos del amor hablan más fuerte.</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PERSONAJES EN CROCHET -->
+  <section class="characters-section" id="protagonistas">
+    <div class="section-header">
+      <h2>Nuestros Protagonistas en Crochet</h2>
+      <p>
+        En <strong>Hilos Azules</strong> cuidamos la intimidad de nuestros hijos representándolos como pequeños príncipes tejidos a mano (estilo <em>amigurumi</em>), donde cada hebra simboliza el amor que nos une.
+      </p>
+    </div>
+
+    <div class="characters-container-wrapper">
+      <!-- Hebra horizontal luminosa que conecta a Andrea, Gabo y Jero -->
+      <svg class="yarn-horizontal-thread" viewBox="0 0 1120 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="horizYarnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0047AB" />
+            <stop offset="50%" stop-color="#87CEEB" />
+            <stop offset="100%" stop-color="#7B5EA7" />
+          </linearGradient>
+        </defs>
+        <!-- Guía punteada de fondo -->
+        <path d="M 40 35 C 260 5, 420 65, 560 35 C 700 5, 860 65, 1080 35"
+              stroke="rgba(30, 58, 95, 0.14)" stroke-width="3" stroke-dasharray="7 7" fill="none" />
+        <!-- Cordón principal luminoso animado con ScrollTrigger -->
+        <path id="horizontalYarnMain"
+              d="M 40 35 C 260 5, 420 65, 560 35 C 700 5, 860 65, 1080 35"
+              stroke="url(#horizYarnGrad)" stroke-width="6" stroke-linecap="round" fill="none" />
+        <!-- Hebra de brillo entrelazada -->
+        <path id="horizontalYarnHighlight"
+              d="M 40 35 C 260 5, 420 65, 560 35 C 700 5, 860 65, 1080 35"
+              stroke="#FDFCFA" stroke-width="2" stroke-dasharray="8 8" stroke-linecap="round" fill="none" opacity="0.85" />
+      </svg>
+
+      <div class="characters-grid">
+        <!-- Tarjeta Andrea -->
+        <div class="character-card-3d" data-character="andrea">
+          <div class="card-glass-glow glow-cobalto"></div>
+          <div class="card-inner-3d">
+            <div class="character-portrait-frame">
+              <img src="Andrea_left.jpeg" alt="Andrea en tejido amigurumi hiperrealista" class="character-portrait-img" loading="lazy">
+            </div>
+            
+            <div class="card-content-3d">
+              <span class="character-role">Mamá, Psicóloga y Guía</span>
+              <h3>Andrea</h3>
+              <p>La voz que narra sin filtros el tránsito desde la estructura profesional hasta la aceptación amorosa del diagnóstico.</p>
+              <div class="character-meta-badges">
+                <div class="yarn-swatch">
+                  <span class="swatch-dot" style="background: var(--azul-cobalto);"></span>
+                  <span>Hebra Azul Cobalto</span>
+                </div>
+                <span class="character-tag-pill">🧶 Guía del camino</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Gabo -->
+        <div class="character-card-3d" data-character="gabo">
+          <div class="card-glass-glow glow-cielo"></div>
+          <div class="card-inner-3d">
+            <div class="character-portrait-frame">
+              <img src="Gabo_portrait.jpeg" alt="Gabo el príncipe mayor en tejido amigurumi hiperrealista" class="character-portrait-img" loading="lazy">
+            </div>
+            
+            <div class="card-content-3d">
+              <span class="character-role">El Príncipe Mayor</span>
+              <h3>Gabo</h3>
+              <p>Quien abrió las puertas del mundo azul y nos enseñó que la mirada y los pequeños gestos comunican más que mil palabras.</p>
+              <div class="character-meta-badges">
+                <div class="yarn-swatch">
+                  <span class="swatch-dot" style="background: var(--azul-cielo);"></span>
+                  <span>Hebra Azul Cielo</span>
+                </div>
+                <span class="character-tag-pill">✨ Miradas que hablan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Jero -->
+        <div class="character-card-3d" data-character="jero">
+          <div class="card-glass-glow glow-violeta"></div>
+          <div class="card-inner-3d">
+            <div class="character-portrait-frame">
+              <img src="Jero_portrait.jpeg" alt="Jero el príncipe menor en tejido amigurumi hiperrealista" class="character-portrait-img" loading="lazy">
+            </div>
+            
+            <div class="card-content-3d">
+              <span class="character-role">El Príncipe Menor</span>
+              <h3>Jero</h3>
+              <p>Llegó un año y dos meses después de su hermano para multiplicar la ternura, el amor y el aprendizaje constante en nuestro planeta.</p>
+              <div class="character-meta-badges">
+                <div class="yarn-swatch">
+                  <span class="swatch-dot" style="background: var(--violeta);"></span>
+                  <span>Hebra Violeta</span>
+                </div>
+                <span class="character-tag-pill">💜 Ternura infinita</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE: EL CORAZÓN DE HILOS AZULES -->
+  <footer class="heart-finale" id="comunidad">
+    <div class="heart-logo-showcase">
+      <!-- Isotipo oficial recreado fielmente en SVG -->
+      <svg viewBox="0 0 200 180" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ondas suaves de fondo -->
+        <path d="M 10 55 Q 55 5, 100 55 T 190 55" stroke="#1E3A5F" stroke-width="1.5" opacity="0.35"/>
+        <path d="M 10 70 Q 50 30, 95 95 T 190 50" stroke="#7B5EA7" stroke-width="1.5" opacity="0.45"/>
+        <path d="M 10 105 Q 60 140, 115 125 T 190 95" stroke="#87CEEB" stroke-width="2" opacity="0.7"/>
+        <!-- Corazón tejido de Hilos Azules -->
+        <path d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" 
+              stroke="#1E3A5F" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" 
+              stroke="#7B5EA7" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" 
+              stroke="#0047AB" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <!-- Puntos de nudo -->
+        <circle cx="100" cy="58" r="5.5" fill="#1E3A5F"/>
+        <circle cx="100" cy="165" r="5.5" fill="#1E3A5F"/>
+      </svg>
+    </div>
+
+    <h2>Hilos Azules</h2>
+    <p class="serif-quote" style="font-size: 1.45rem; margin-bottom: 1rem;">
+      “El arte de acompañarnos en el mundo azul”
+    </p>
+    <p>
+      Aquí termina de desenrollarse el primer tramo de nuestra madeja, pero cada semana tejemos un nuevo capítulo. Si estás viviendo este proceso, no estás sola ni solo.
+    </p>
+
+    <div class="newsletter-box">
+      <h3>Recibe el Capítulo 4 la próxima semana</h3>
+      <p style="font-size: 0.9rem; margin-top: 0.3rem;">Únete a nuestra comunidad de familias y caminemos juntos sin filtros.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a Hilos Azules! Te acompañaremos cada semana con un nuevo capítulo.');">
+        <input type="email" placeholder="Escribe tu correo electrónico..." required />
+        <button type="submit" class="btn-cta">Tejer Juntos</button>
+      </form>
+    </div>
+
+  </footer>
+
+  <!-- LIBRERÍAS DE MOTION DESIGN (LENIS + GSAP + SCROLLTRIGGER) -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- ARQUITECTURA DE MOVIMIENTO, SCROLLYTELLING Y AUDIO -->
+  <script>
+    // Registro oficial de ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Detección de preferencia de movimiento reducido por accesibilidad
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ==========================================================================
+    // 1. LENIS SMOOTH SCROLL SINCRONIZADO CON GSAP TICKER & SCROLLTRIGGER
+    // ==========================================================================
+    let lenis = null;
+    if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+      lenis = new Lenis({
+        duration: 1.35,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.95,
+        touchMultiplier: 1.5
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // Navegación suave con inercia de lana para enlaces de anclaje
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          const targetId = anchor.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              lenis.scrollTo(targetEl, { offset: -80, duration: 1.5 });
+            }
+          }
+        });
+      });
+    }
+
+    // ==========================================================================
+    // 2. COREOGRAFÍA DE ENTRADA EN EL HERO (TIMELINE INICIAL)
+    // ==========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!prefersReducedMotion) {
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        heroTl
+          .from('.badge-crochet', {
+            y: -20,
+            opacity: 0,
+            duration: 0.75
+          })
+          .from('.hero h1', {
+            y: 32,
+            opacity: 0,
+            duration: 0.9
+          }, '-=0.45')
+          .from('.hero p.lead', {
+            y: 24,
+            opacity: 0,
+            duration: 0.85
+          }, '-=0.55')
+          .from('#heroTheater', {
+            y: 36,
+            scale: 0.96,
+            opacity: 0,
+            duration: 1.05
+          }, '-=0.5')
+          .from('.skein-wrapper', {
+            y: 28,
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.85
+          }, '-=0.55');
+      }
+    });
+
+    // ==========================================================================
+    // 3. CALIBRACIÓN MATEMÁTICA DEL HILO SVG (#camino), MADEJA Y BARRA SUPERIOR
+    // ==========================================================================
+    const animatedYarn = document.getElementById('animatedYarn');
+    const yarnShadow = document.getElementById('yarnShadow');
+    const yarnPlyHighlight = document.getElementById('yarnPlyHighlight');
+    const yarnPlyViolet = document.getElementById('yarnPlyViolet');
+    const yarnTraveler = document.getElementById('yarnTraveler');
+    const yarnSkein = document.getElementById('yarnSkein');
+    const yarnSkeinStage = document.getElementById('yarnSkeinStage');
+    const progressBar = document.getElementById('progressBar');
+    const yarnPaths = [animatedYarn, yarnShadow, yarnPlyHighlight, yarnPlyViolet].filter(Boolean);
+
+    // Preparar longitud real del trazo SVG para animar el tejido multi-hebra 3D
+    const pathLength = animatedYarn ? animatedYarn.getTotalLength() : 1600;
+    yarnPaths.forEach((path) => {
+      path.style.strokeDasharray = pathLength;
+      path.style.strokeDashoffset = prefersReducedMotion ? 0 : pathLength;
+    });
+
+    // 3.1 Barra de progreso superior con scrub: 0.3
+    if (progressBar) {
+      gsap.to(progressBar, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3
+        }
+      });
+    }
+
+    // 3.2 Rotación continua de la Gran Madeja 3D (#yarnSkein) con scrub: 1
+    if (yarnSkein && !prefersReducedMotion) {
+      gsap.to(yarnSkein, {
+        rotation: 720,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#camino',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    }
+
+    // 3.3 Dibujo sincronizado del Hilo SVG y #yarnTraveler exclusivamente en #camino
+    if (animatedYarn && !prefersReducedMotion) {
+      const yarnState = { progress: 0 };
+
+      gsap.to(yarnState, {
+        progress: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#camino',
+          start: 'top 65%',
+          end: 'bottom 75%',
+          scrub: 1.1,
+          onUpdate: () => {
+            const drawLength = pathLength * yarnState.progress;
+            const offset = pathLength - drawLength;
+
+            yarnPaths.forEach((path) => {
+              path.style.strokeDashoffset = offset;
+            });
+
+            if (yarnTraveler) {
+              if (drawLength > 6 && yarnState.progress < 0.995) {
+                const pt = animatedYarn.getPointAtLength(drawLength);
+                yarnTraveler.setAttribute('transform', `translate(${pt.x.toFixed(1)}, ${pt.y.toFixed(1)})`);
+                yarnTraveler.style.opacity = '1';
+              } else {
+                yarnTraveler.style.opacity = yarnState.progress >= 0.995 ? '0.6' : '0';
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Interacción táctil 3D en la Madeja al pasar el cursor (60fps con quickTo)
+    if (yarnSkeinStage && !prefersReducedMotion) {
+      const skeinRotX = gsap.quickTo(yarnSkeinStage, 'rotationX', { duration: 0.35, ease: 'power2.out' });
+      const skeinRotY = gsap.quickTo(yarnSkeinStage, 'rotationY', { duration: 0.35, ease: 'power2.out' });
+      const skeinScale = gsap.quickTo(yarnSkeinStage, 'scale', { duration: 0.35, ease: 'power2.out' });
+
+      gsap.set(yarnSkeinStage, { transformPerspective: 600 });
+
+      yarnSkeinStage.addEventListener('mousemove', (e) => {
+        const rect = yarnSkeinStage.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        skeinRotX(-y * 0.22);
+        skeinRotY(x * 0.22);
+        skeinScale(1.06);
+      });
+
+      yarnSkeinStage.addEventListener('mouseleave', () => {
+        skeinRotX(0);
+        skeinRotY(0);
+        skeinScale(1);
+      });
+    }
+
+    // ==========================================================================
+    // 4. SCROLLYTELLING Y PARALLAX ASIMÉTRICO EN LOS CAPÍTULOS (.chapter-row)
+    // ==========================================================================
+    const chapterRows = document.querySelectorAll('.chapter-row');
+
+    chapterRows.forEach((row) => {
+      const isReverse = row.classList.contains('reverse');
+      const card = row.querySelector('.chapter-card');
+      const node = row.querySelector('.yarn-node');
+      const frame = row.querySelector('.amigurumi-frame');
+
+      // 4.1 Pulso elástico y activación de cada .yarn-node cuando la punta del hilo lo cruza
+      if (node) {
+        ScrollTrigger.create({
+          trigger: node,
+          start: 'top 66%',
+          onEnter: () => {
+            node.classList.add('active');
+            if (!prefersReducedMotion) {
+              gsap.fromTo(node,
+                { scale: 0.78 },
+                { scale: 1.15, duration: 0.55, ease: 'back.out(1.7)', overwrite: 'auto' }
+              );
+            }
+          },
+          onLeaveBack: () => {
+            if (node.textContent.trim() !== '01') {
+              node.classList.remove('active');
+              if (!prefersReducedMotion) {
+                gsap.to(node, { scale: 1, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+              }
+            }
+          }
+        });
+      }
+
+      if (!prefersReducedMotion) {
+        // 4.2 Entrada lateral orgánica de .chapter-card y .amigurumi-frame según dirección de la fila
+        if (card) {
+          gsap.from(card, {
+            x: isReverse ? 55 : -55,
+            y: 24,
+            opacity: 0,
+            duration: 0.95,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          });
+        }
+
+        if (frame) {
+          gsap.from(frame, {
+            x: isReverse ? -55 : 55,
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          });
+
+          // 4.3 Parallax asimétrico suave en .amigurumi-frame mientras se lee el capítulo
+          gsap.fromTo(frame,
+            { yPercent: 8 },
+            {
+              yPercent: -8,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.2
+              }
+            }
+          );
+        }
+      }
+    });
+
+    // ==========================================================================
+    // 5. ACORDEONES FLUIDOS ("LEER MÁS") Y ECUALIZADOR DE VOZ ("ESCUCHAR RELATO")
+    // ==========================================================================
+    function toggleChapter(id, btn) {
+      const content = document.getElementById(id);
+      if (!content) return;
+
+      const isOpen = content.classList.toggle('open');
+      btn.textContent = isOpen ? 'Mostrar menos' : 'Leer más';
+
+      if (prefersReducedMotion) {
+        content.style.height = isOpen ? 'auto' : '0px';
+        content.style.opacity = isOpen ? '1' : '0';
+        ScrollTrigger.refresh();
+        return;
+      }
+
+      if (isOpen) {
+        gsap.to(content, {
+          height: 'auto',
+          opacity: 1,
+          duration: 0.48,
+          ease: 'power3.out',
+          overwrite: 'auto',
+          onComplete: () => ScrollTrigger.refresh()
+        });
+      } else {
+        gsap.to(content, {
+          height: 0,
+          opacity: 0,
+          duration: 0.38,
+          ease: 'power3.inOut',
+          overwrite: 'auto',
+          onComplete: () => ScrollTrigger.refresh()
+        });
+      }
+    }
+
+    // Reproductor simulado con mini ecualizador animado en CSS de 4 hebras verticales
+    let activeAudioBtn = null;
+    const equalizerMarkup = `
+      <span class="audio-equalizer" aria-hidden="true">
+        <span class="eq-strand"></span>
+        <span class="eq-strand"></span>
+        <span class="eq-strand"></span>
+        <span class="eq-strand"></span>
+      </span>
+    `;
+
+    function simulateAudio(btn, title) {
+      if (activeAudioBtn && activeAudioBtn !== btn) {
+        const prevLabel = activeAudioBtn.getAttribute('data-default-label') || 'Escuchar relato';
+        activeAudioBtn.classList.remove('playing');
+        activeAudioBtn.innerHTML = `<span>▶</span> ${prevLabel}`;
+      }
+
+      const defaultLabel = btn.getAttribute('data-default-label') || 'Escuchar relato';
+      const isPlaying = btn.classList.toggle('playing');
+
+      if (isPlaying) {
+        btn.innerHTML = `${equalizerMarkup} <span>Escuchando voz de Andrea...</span>`;
+        activeAudioBtn = btn;
+      } else {
+        btn.innerHTML = `<span>▶</span> ${defaultLabel}`;
+        activeAudioBtn = null;
+      }
+    }
+
+    // ==========================================================================
+    // CONTROL DEL VIDEO CINEMATOGRÁFICO DE BIENVENIDA
+    // ==========================================================================
+    const heroVideo = document.getElementById('heroCrochetVideo');
+    const heroSoundBtn = document.getElementById('heroSoundBtn');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundLabel = document.getElementById('soundLabel');
+    const heroPlayBtn = document.getElementById('heroPlayBtn');
+    const playIcon = document.getElementById('playIcon');
+
+    function toggleHeroSound() {
+      if (!heroVideo) return;
+      if (heroVideo.muted) {
+        heroVideo.muted = false;
+        heroVideo.volume = 1.0;
+        heroSoundBtn.classList.add('active');
+        soundIcon.textContent = '🔊';
+        soundLabel.textContent = 'Silenciar voz';
+      } else {
+        heroVideo.muted = true;
+        heroSoundBtn.classList.remove('active');
+        soundIcon.textContent = '🔇';
+        soundLabel.textContent = 'Escuchar voz de Andrea';
+      }
+    }
+
+    function toggleHeroPlay() {
+      if (!heroVideo) return;
+      if (heroVideo.paused) {
+        heroVideo.play();
+        playIcon.textContent = '⏸';
+      } else {
+        heroVideo.pause();
+        playIcon.textContent = '▶';
+      }
+    }
+
+    // ==========================================================================
+    // 6. SECCIÓN #protagonistas: HILO HORIZONTAL, ENTRADA ESCALONADA Y 3D TILT 60FPS
+    // ==========================================================================
+    const horizMain = document.getElementById('horizontalYarnMain');
+    const horizHighlight = document.getElementById('horizontalYarnHighlight');
+
+    if (horizMain && !prefersReducedMotion) {
+      const horizLen = horizMain.getTotalLength();
+      [horizMain, horizHighlight].forEach((p) => {
+        if (p) {
+          p.style.strokeDasharray = horizLen;
+          p.style.strokeDashoffset = horizLen;
+        }
+      });
+
+      gsap.to([horizMain, horizHighlight], {
+        strokeDashoffset: 0,
+        duration: 1.6,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: '#protagonistas',
+          start: 'top 72%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+
+    const cards3D = document.querySelectorAll('.character-card-3d');
+
+    if (cards3D.length && !prefersReducedMotion) {
+      // Entrada escalonada (stagger: 0.18, ease: 'back.out(1.2)')
+      gsap.from(cards3D, {
+        y: 55,
+        opacity: 0,
+        scale: 0.94,
+        duration: 0.9,
+        stagger: 0.18,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.characters-grid',
+          start: 'top 82%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+      // Efecto 3D Tilt optimizado a 60fps con gsap.quickTo
+      cards3D.forEach((card) => {
+        const inner = card.querySelector('.card-inner-3d');
+        const glow = card.querySelector('.card-glass-glow');
+        const frame = card.querySelector('.character-portrait-frame');
+        const img = card.querySelector('.character-portrait-img');
+
+        gsap.set(inner, { transformPerspective: 1000 });
+
+        const innerRotX = gsap.quickTo(inner, 'rotationX', { duration: 0.35, ease: 'power3.out' });
+        const innerRotY = gsap.quickTo(inner, 'rotationY', { duration: 0.35, ease: 'power3.out' });
+        const innerY = gsap.quickTo(inner, 'y', { duration: 0.35, ease: 'power3.out' });
+
+        const frameX = frame ? gsap.quickTo(frame, 'x', { duration: 0.35, ease: 'power3.out' }) : null;
+        const frameY = frame ? gsap.quickTo(frame, 'y', { duration: 0.35, ease: 'power3.out' }) : null;
+        const frameScale = frame ? gsap.quickTo(frame, 'scale', { duration: 0.35, ease: 'power3.out' }) : null;
+
+        const imgX = img ? gsap.quickTo(img, 'x', { duration: 0.4, ease: 'power3.out' }) : null;
+        const imgY = img ? gsap.quickTo(img, 'y', { duration: 0.4, ease: 'power3.out' }) : null;
+        const imgScale = img ? gsap.quickTo(img, 'scale', { duration: 0.4, ease: 'power3.out' }) : null;
+
+        const glowX = glow ? gsap.quickTo(glow, 'x', { duration: 0.4, ease: 'power3.out' }) : null;
+        const glowY = glow ? gsap.quickTo(glow, 'y', { duration: 0.4, ease: 'power3.out' }) : null;
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const normX = (x - centerX) / centerX;
+          const normY = (y - centerY) / centerY;
+
+          innerRotX(normY * -8);
+          innerRotY(normX * 8);
+          innerY(-6);
+
+          if (frame) {
+            frameX(normX * 6);
+            frameY(-6);
+            frameScale(1.02);
+          }
+          if (img) {
+            imgX((x - centerX) * 0.04);
+            imgY((y - centerY) * 0.04);
+            imgScale(1.08);
+          }
+          if (glow) {
+            glowX((x - centerX) * 0.15);
+            glowY((y - centerY) * 0.15);
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          innerRotX(0);
+          innerRotY(0);
+          innerY(0);
+
+          if (frame) {
+            frameX(0);
+            frameY(0);
+            frameScale(1);
+          }
+          if (img) {
+            imgX(0);
+            imgY(0);
+            imgScale(1);
+          }
+          if (glow) {
+            glowX(0);
+            glowY(0);
+          }
+        });
+      });
+    }
+
+    // ==========================================================================
+    // 7. MICROINTERACCIONES MAGNÉTICAS EN BOTONES PRINCIPALES (.btn-cta, .theater-btn)
+    // ==========================================================================
+    if (!prefersReducedMotion) {
+      const magneticButtons = document.querySelectorAll('.btn-cta, .theater-btn');
+
+      magneticButtons.forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const deltaX = (e.clientX - centerX) * 0.28;
+          const deltaY = (e.clientY - centerY) * 0.28;
+
+          gsap.to(btn, {
+            x: deltaX,
+            y: deltaY,
+            duration: 0.3,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, {
+            x: 0,
+            y: 0,
+            duration: 0.7,
+            ease: 'elastic.out(1, 0.4)',
+            overwrite: 'auto'
+          });
+        });
+      });
+    }
+  </script>
+</body>
+</html>

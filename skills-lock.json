@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "antigravity-skills": {
+      "source": "Aurora-AI/Certum-",
+      "sourceType": "github",
+      "computedHash": "c8bc1456b91ac29b1d5d16e9cb8721468f15fba9787088181f82c208fa5245bc"
+    }
+  }
+}
