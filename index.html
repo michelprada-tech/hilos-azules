@@ -745,6 +745,374 @@
     }
 
     /* ==========================================================================
+       CAJA DE AGRADECIMIENTOS DEL ALMA (INTRODUCCIÓN)
+       ========================================================================== */
+    .gratitude-box {
+      margin-top: 1.15rem;
+      background: linear-gradient(145deg, rgba(135, 206, 235, 0.16), rgba(123, 94, 167, 0.1));
+      border: 1.5px dashed rgba(0, 71, 171, 0.35);
+      border-radius: 20px;
+      padding: 1.35rem 1.45rem;
+      position: relative;
+    }
+
+    .gratitude-box h3 {
+      font-size: 1.3rem;
+      color: var(--azul-profundo);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gratitude-box p + p {
+      margin-top: 0.75rem;
+    }
+
+    .gratitude-highlight-artist {
+      margin-top: 0.85rem;
+      padding: 0.85rem 1.1rem;
+      background: rgba(253, 252, 250, 0.85);
+      border-left: 3.5px solid var(--violeta);
+      border-radius: 12px;
+      font-size: 0.92rem;
+      color: var(--azul-profundo);
+    }
+
+    /* ==========================================================================
+       EL TELAR DEL LOGO: CORAZÓN DE HILOS AZULES EN CONSTRUCCIÓN (5 PUNTADAS)
+       ========================================================================== */
+    .loom-progress-section {
+      position: relative;
+      z-index: 3;
+      margin: 1rem auto;
+      width: 100%;
+    }
+
+    .loom-card {
+      background: linear-gradient(145deg, #132439 0%, #1E3A5F 60%, #172C49 100%);
+      border-radius: 30px;
+      padding: 2.2rem 2.4rem;
+      color: var(--arena);
+      border: 3px dashed rgba(135, 206, 235, 0.55);
+      box-shadow: 0 22px 50px rgba(18, 38, 66, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loom-visual-stage {
+      background: radial-gradient(circle at 50% 45%, rgba(253, 252, 250, 0.97) 0%, rgba(247, 245, 240, 0.92) 100%);
+      border-radius: 26px;
+      padding: 1.2rem;
+      border: 2.5px dashed rgba(123, 94, 167, 0.45);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28), inset 0 0 24px rgba(135, 206, 235, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .loom-visual-stage svg {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      overflow: visible;
+    }
+
+    .loom-percent-pill {
+      margin-top: 0.55rem;
+      background: var(--azul-profundo);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.3rem 0.9rem;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+      border: 1px dashed var(--azul-cielo);
+    }
+
+    .loom-info h3 {
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1.15;
+      margin-bottom: 0.65rem;
+    }
+
+    .loom-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(135, 206, 235, 0.18);
+      color: var(--azul-cielo);
+      border: 1px dashed rgba(135, 206, 235, 0.55);
+      padding: 0.3rem 0.9rem;
+      border-radius: 99px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .loom-info p {
+      color: rgba(247, 245, 240, 0.88);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+    }
+
+    .loom-stage-desc {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--azul-cielo);
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: #fff;
+      margin-bottom: 1.15rem;
+    }
+
+    .loom-steps-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .loom-step-btn {
+      background: rgba(247, 245, 240, 0.08);
+      color: rgba(247, 245, 240, 0.8);
+      border: 1.5px dashed rgba(135, 206, 235, 0.35);
+      padding: 0.42rem 0.85rem;
+      border-radius: 99px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .loom-step-btn:hover,
+    .loom-step-btn.previewing {
+      background: rgba(135, 206, 235, 0.24);
+      color: #fff;
+      border-color: var(--azul-cielo);
+      transform: translateY(-2px);
+    }
+
+    .loom-step-btn.woven {
+      background: var(--azul-cobalto);
+      color: #fff;
+      border-style: solid;
+      border-color: var(--azul-cielo);
+      box-shadow: 0 4px 12px rgba(0, 71, 171, 0.4);
+    }
+
+    .loom-step-btn.next-up {
+      border-color: #C5B0E8;
+      color: #E9D8FD;
+      background: rgba(123, 94, 167, 0.28);
+    }
+
+    .loom-needle-pulse {
+      animation: needleGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes needleGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.75; }
+    }
+
+    /* ==========================================================================
+       TARJETA EN PERSPECTIVA (PRÓXIMA HILADA DE LA SEMANA)
+       ========================================================================== */
+    .chapter-card.perspective-card {
+      background: linear-gradient(180deg, rgba(253, 252, 250, 0.96) 0%, rgba(235, 231, 222, 0.9) 100%);
+      border: 2.5px dashed var(--azul-cobalto);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-tag.tag-perspective {
+      background: rgba(0, 71, 171, 0.12);
+      color: var(--azul-cobalto);
+      border: 1px dashed rgba(0, 71, 171, 0.35);
+    }
+
+    .perspective-teaser-wrap {
+      position: relative;
+      margin-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .perspective-teaser-text {
+      color: var(--gris-pizarra);
+      font-style: italic;
+      line-height: 1.68;
+      mask-image: linear-gradient(180deg, #000 35%, rgba(0, 0, 0, 0.15) 100%);
+      -webkit-mask-image: linear-gradient(180deg, #000 35%, rgba(0, 0, 0, 0.15) 100%);
+    }
+
+    .perspective-veil-notice {
+      margin-top: 0.75rem;
+      background: rgba(30, 58, 95, 0.06);
+      border: 1.5px dashed rgba(123, 94, 167, 0.4);
+      border-radius: 16px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--azul-profundo);
+    }
+
+    .yarn-node.node-perspective {
+      background: var(--blanco-suave);
+      color: var(--azul-cobalto);
+      border: 3px dashed var(--azul-cobalto);
+      box-shadow: 0 0 0 6px rgba(135, 206, 235, 0.25);
+      animation: pulsePerspectiveNode 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulsePerspectiveNode {
+      0%, 100% { box-shadow: 0 0 0 5px rgba(135, 206, 235, 0.22); }
+      50% { box-shadow: 0 0 0 10px rgba(123, 94, 167, 0.28); }
+    }
+
+    .amigurumi-frame.perspective-frame .amigurumi-story-img {
+      filter: saturate(0.72) contrast(0.95) brightness(0.92);
+    }
+
+    .perspective-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(19, 36, 57, 0.18) 0%, rgba(19, 36, 57, 0.72) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 3;
+    }
+
+    .perspective-overlay-pill {
+      background: rgba(19, 36, 57, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--azul-cielo);
+      border: 1.5px dashed var(--azul-cielo);
+      padding: 0.42rem 1rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* ==========================================================================
+       PEQUEÑOS NUDOS INDICADORES AL FINAL DEL CAMINO (HILADAS 3, 4 Y 5)
+       ========================================================================== */
+    .future-knots-section {
+      position: relative;
+      z-index: 3;
+      max-width: 780px;
+      margin: 0.5rem auto 0;
+      background: rgba(253, 252, 250, 0.88);
+      border: 2px dashed rgba(30, 58, 95, 0.2);
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 10px 26px rgba(30, 58, 95, 0.05);
+    }
+
+    .future-knots-header {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .future-knots-header span {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--violeta);
+      background: rgba(123, 94, 167, 0.12);
+      padding: 0.25rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 0.35rem;
+    }
+
+    .future-knots-header h3 {
+      font-size: 1.45rem;
+      color: var(--azul-profundo);
+    }
+
+    .future-knots-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .future-knot-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--arena);
+      padding: 0.75rem 1.1rem;
+      border-radius: 18px;
+      border: 1.5px dashed rgba(30, 58, 95, 0.16);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .future-knot-item:hover {
+      border-color: var(--violeta);
+      transform: translateX(4px);
+    }
+
+    .mini-knot-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blanco-suave);
+      border: 2px dashed var(--violeta);
+      color: var(--azul-profundo);
+      font-weight: 700;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .future-knot-meta {
+      flex: 1;
+    }
+
+    .future-knot-meta strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--azul-profundo);
+    }
+
+    .future-knot-meta small {
+      font-size: 0.78rem;
+      color: var(--gris-pizarra);
+    }
+
+    .future-knot-stitch-tag {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--azul-cobalto);
+      background: rgba(135, 206, 235, 0.22);
+      padding: 0.25rem 0.7rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
        SECCIÓN DE PROTAGONISTAS EN CROCHET 3D (EFECTO POP-OUT HIPERREALISTA)
        ========================================================================== */
     .characters-section {
@@ -1050,6 +1418,19 @@
         position: absolute;
         left: 0;
       }
+      .loom-card {
+        grid-template-columns: 1fr;
+        padding: 1.6rem 1.35rem;
+        gap: 1.5rem;
+      }
+      .loom-visual-stage {
+        max-width: 240px;
+        margin: 0 auto;
+      }
+      .future-knot-item {
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
       .theater-bar {
         flex-direction: column;
         align-items: flex-start;
@@ -1097,7 +1478,8 @@
 
     <nav>
       <ul>
-        <li><a href="#camino">El Camino Tejido</a></li>
+        <li><a href="#camino">Las Hiladas</a></li>
+        <li><a href="#telar-logo">El Telar del Logo</a></li>
         <li><a href="#protagonistas">Protagonistas en Crochet</a></li>
         <li><a href="#comunidad">Comunidad</a></li>
         <li><a href="#camino" class="btn-cta">Desenrollar la Historia</a></li>
@@ -1108,11 +1490,11 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="badge-crochet">
-      🧶 Historia tejida al crochet · Basada en hechos reales
+      🧶 Historia tejida al crochet · Una nueva Hilada cada semana
     </div>
     <h1>El arte de acompañarnos en el <span>mundo azul</span></h1>
     <p class="lead">
-      Bienvenidos a nuestra historia real, sin filtros. Acompaña a <strong>Andrea</strong> y a sus dos pequeños príncipes, <strong>Gabo y Jero</strong>, a través de una gran madeja de lana azul que se desenrolla capítulo a capítulo para recordarnos que se puede encontrar paz al mirar a los ojos a nuestros hijos.
+      Bienvenidos a nuestra historia real, sin filtros. Acompaña a <strong>Andrea</strong> y a sus dos pequeños príncipes, <strong>Gabo y Jero</strong>, a través de una gran madeja de lana azul que se desenreda semana tras semana para recordarnos que se puede encontrar paz al mirar a los ojos a nuestros hijos.
     </p>
 
     <!-- Escenario Cinematográfico en Crochet 3D (Portada Viva con Video e Historia) -->
@@ -1165,13 +1547,13 @@
         </svg>
       </div>
       <div class="scroll-hint">
-        <span>Haz scroll para desenrollar la Gran Madeja Azul</span>
+        <span>Haz scroll para desenredar la madeja y conocer nuestras Hiladas</span>
         <span class="scroll-arrow">↓</span>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN PRINCIPAL: EL CAMINO TEJIDO (CAPÍTULOS) -->
+  <!-- SECCIÓN PRINCIPAL: EL CAMINO TEJIDO (HILADAS SEMANALES) -->
   <section class="story-journey" id="camino">
     <!-- SVG del Hilo 3D Hiperrealista (Múltiples hebras entrelazadas con volumen) -->
     <svg class="yarn-path-svg" viewBox="0 0 240 1600" preserveAspectRatio="none">
@@ -1229,35 +1611,53 @@
       </g>
     </svg>
 
-    <div class="chapter-list">
+    <div class="chapter-list" id="chapterList">
 
-      <!-- PARADA 1: INTRODUCCIÓN -->
-      <article class="chapter-row">
+      <!-- PARADA INICIAL: INTRODUCCIÓN ("MI HISTORIA, NUESTRA HISTORIA") -->
+      <article class="chapter-row" id="parada-intro">
         <div class="chapter-card">
           <span class="chapter-tag">Inicio del Hilo · Introducción</span>
           <h2>Mi historia, nuestra historia</h2>
           <p>
-            Bienvenidos a este espacio. Antes de dar consejos o hablar de herramientas, quiero que conozcas lo que hemos vivido durante estos primeros cinco años en el mundo de la neurodiversidad.
+            Bienvenidos a este espacio. Antes de empezar a subir contenido, antes de dar consejos o hablar de herramientas, quiero que conozcas nuestra historia y lo que hemos vivido durante estos primeros cinco años en el mundo de la diversidad.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            Te invito a ti, que hoy estás leyendo mi publicación y deseas conocer más sobre el autismo, o que quizás estás iniciando este proceso que duele. Sé qué dolor sientes; sé lo que es tener el alma rota… sin siquiera saber bien cómo se siente el alma.
           </p>
           <blockquote class="chapter-quote">
-            “Sé qué dolor sientes; sé lo que es tener el alma rota… Aquí estamos para aprender juntos y descubrir que se puede encontrar paz al mirar a los ojos a nuestros hijos.”
+            “Aquí estamos para aprender juntos. Como una madeja de lana que poco a poco se desenreda, iremos tejiendo lo vivido semana tras semana, porque merece ser contado para que sepas que se puede encontrar paz al mirar a los ojos a nuestros hijos.”
           </blockquote>
           <div class="chapter-more" id="more-intro">
             <div class="chapter-more-inner">
               <p>
-                Te invito a ti, que hoy estás leyendo esta publicación y deseas conocer más sobre el autismo, o que quizás estás iniciando este proceso que duele. Semana tras semana iremos tejiendo cada capítulo sin filtros.
+                Por eso, antes de arrancar, quiero compartirte nuestra historia real, sin filtros, a través de una serie de capítulos —nuestras <strong>Hiladas</strong>— que estaremos subiendo semana tras semana.
               </p>
+
+              <!-- Pausa obligatoria para agradecer -->
+              <div class="gratitude-box">
+                <h3>💙 Una pausa obligatoria para agradecer</h3>
+                <p>
+                  Antes de dar la primera puntada de este viaje, quiero agradecer a mis dos grandes maestros y motores, quienes me abrieron la puerta a este universo: mis hijos, <strong>Gabriel y Jerónimo</strong>. Gracias a mi esposo <strong>Rubén</strong>, por ser mi compañero, mi soporte y sostener el hogar, y a toda la familia que ha caminado a mi lado. A todas esas personas que de corazón nos han apoyado, se han preocupado por nuestro proceso y han sido parte de él.
+                </p>
+                <div class="gratitude-highlight-artist">
+                  ✨ <strong>Un agradecimiento muy especial y del alma a Michel Prada Bedoya:</strong> a ti, que un día escuchaste esta idea y hoy la estás haciendo realidad. Gracias por tu dedicación, por tu cariño y por construir estos personajes con tanto arte; verlos cobrar vida me llena el alma.
+                </div>
+                <p style="margin-top: 0.85rem;">
+                  Gracias también a todas las personas que hoy hacen posible que este sueño y este espacio de resistencia y amor se conviertan en una realidad.<br>
+                  <strong>Bienvenidos a Hilos Azules | El arte de acompañarnos en el mundo azul.</strong>
+                </p>
+              </div>
             </div>
           </div>
           <div class="card-actions">
-            <button class="btn-outline" onclick="toggleChapter('more-intro', this)">Leer más</button>
-            <button class="btn-audio" data-default-label="Escuchar relato de Andrea" onclick="simulateAudio(this, 'Introducción: Mi historia, nuestra historia')">
-              <span>▶</span> Escuchar relato de Andrea
+            <button class="btn-outline" data-more-label="Leer agradecimientos y más" onclick="toggleChapter('more-intro', this)">Leer agradecimientos y más</button>
+            <button class="btn-audio" data-default-label="Escuchar Introducción" onclick="simulateAudio(this, 'Introducción: Mi historia, nuestra historia')">
+              <span>▶</span> Escuchar Introducción
             </button>
           </div>
         </div>
 
-        <div class="yarn-node active">01</div>
+        <div class="yarn-node active">00</div>
 
         <div class="chapter-illustration">
           <div class="amigurumi-frame amigurumi-frame-photo">
@@ -1267,133 +1667,123 @@
               <div class="yarn-corner-stitch tr">✨</div>
               <div class="yarn-corner-stitch br">💙</div>
             </div>
-            <div class="amigurumi-caption">Un refugio tejido para aprender juntos semana tras semana.</div>
+            <div class="amigurumi-caption">Como una madeja de lana que poco a poco se desenreda, tejemos juntos lo vivido.</div>
           </div>
         </div>
       </article>
 
-      <!-- PARADA 2: CAPÍTULO 1 -->
-      <article class="chapter-row reverse">
-        <div class="chapter-card">
-          <span class="chapter-tag">Capítulo 1</span>
-          <h2>Dos niños, un diagnóstico y el dolor que no se maquilla</h2>
-          <p>
-            Soy <strong>Andrea Flórez Pulecio</strong>, psicóloga con más de 20 años en el mundo de la estructura y los procesos. Pero nada te prepara para el día en que la vida cambia de rumbo: hoy soy mamá de dos niños con autismo nivel 3. Sí… dos.
-          </p>
-          <blockquote class="chapter-quote">
-            “¿Lo he aceptado? Sí, para poder acompañarlos, estar presente y ser su guía. Pero no vine a maquillar la realidad: no ha dejado de doler ni un solo momento.”
-          </blockquote>
-          <div class="chapter-more" id="more-cap1">
-            <div class="chapter-more-inner">
-              <p>
-                Cuando nació Gabo (hoy de 5 años) imaginé mil cosas menos esta aventura. Al año y dos meses llegó Jero. Me he preguntado mil veces <em>'¿Por qué a nosotros? ¿Por qué los dos?'</em>. Aceptarlo con amor es el primer hilo para fortalecer su proceso.
-              </p>
-            </div>
+      <!-- CONTENEDOR DINÁMICO DE HILADAS PUBLICADAS (Hoy: Hilada 1) -->
+      <div id="publishedHiladasContainer" style="display: contents;"></div>
+
+      <!-- EL TELAR DEL LOGO: EL CORAZÓN DE HILOS AZULES CONSTRUYÉNDOSE CAPÍTULO A CAPÍTULO -->
+      <div class="loom-progress-section" id="telar-logo">
+        <div class="loom-card">
+          <div class="loom-visual-stage">
+            <svg id="loomHeartSvg" viewBox="0 0 200 185" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo de Hilos Azules tejiéndose capítulo a capítulo">
+              <defs>
+                <filter id="loomStitchShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="rgba(18, 38, 66, 0.25)"/>
+                </filter>
+                <filter id="needleGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- 0. PATRÓN GUÍA DE COSTURA (Silueta completa punteada al 100% por tejer) -->
+              <g id="loomBlueprintGuide" opacity="0.28">
+                <path d="M 10 55 Q 55 5, 100 55 T 190 55" stroke="#1E3A5F" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M 10 70 Q 50 30, 95 95 T 190 50" stroke="#7B5EA7" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M 10 105 Q 60 140, 115 125 T 190 95" stroke="#0047AB" stroke-width="1.8" stroke-dasharray="4 4"/>
+                <path d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" stroke="#1E3A5F" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round"/>
+                <path d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" stroke="#7B5EA7" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+                <path d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" stroke="#0047AB" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round"/>
+                <circle cx="100" cy="58" r="5" stroke="#1E3A5F" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <circle cx="100" cy="165" r="5" stroke="#1E3A5F" stroke-width="1.5" stroke-dasharray="2 2"/>
+              </g>
+
+              <!-- ETAPA 1 (Hilada 1 — 20%): Nudo inicial superior, ondas del mundo azul y primer trazo del corazón -->
+              <g id="loomStage1" class="loom-stage-group" filter="url(#loomStitchShadow)">
+                <path d="M 10 55 Q 55 5, 100 55 T 190 55" stroke="#1E3A5F" stroke-width="1.8" opacity="0.55" stroke-linecap="round"/>
+                <path d="M 10 70 Q 50 30, 95 95 T 190 50" stroke="#7B5EA7" stroke-width="1.8" opacity="0.65" stroke-linecap="round"/>
+                <path d="M 10 105 Q 60 140, 115 125 T 190 95" stroke="#87CEEB" stroke-width="2.5" opacity="0.85" stroke-linecap="round"/>
+                <!-- Primer trazo superior derecho del corazón -->
+                <path d="M 100 58 C 108 30, 142 22, 160 40" stroke="#1E3A5F" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="100" cy="58" r="6" fill="#1E3A5F"/>
+                <circle cx="100" cy="58" r="2.5" fill="#87CEEB"/>
+              </g>
+
+              <!-- ETAPA 2 (Hilada 2 — 40%): Arco derecho completo en Azul Profundo hasta la base -->
+              <g id="loomStage2" class="loom-stage-group" filter="url(#loomStitchShadow)" opacity="0">
+                <path d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" stroke="#1E3A5F" stroke-width="5" stroke-linecap="round"/>
+              </g>
+
+              <!-- ETAPA 3 (Hilada 3 — 60%): Hebra interior Violeta que abraza el arco derecho -->
+              <g id="loomStage3" class="loom-stage-group" filter="url(#loomStitchShadow)" opacity="0">
+                <path d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" stroke="#7B5EA7" stroke-width="3.4" stroke-linecap="round"/>
+              </g>
+
+              <!-- ETAPA 4 (Hilada 4 — 80%): Costado izquierdo en puntadas de crochet Azul Cobalto -->
+              <g id="loomStage4" class="loom-stage-group" filter="url(#loomStitchShadow)" opacity="0">
+                <path d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" stroke="#0047AB" stroke-width="4" stroke-dasharray="9 6" stroke-linecap="round"/>
+              </g>
+
+              <!-- ETAPA 5 (Hilada 5): Hebra luminosa Azul Cielo izquierda y Nudo Inferior de cierre -->
+              <g id="loomStage5" class="loom-stage-group" filter="url(#loomStitchShadow)" opacity="0">
+                <path d="M 98 60 C 86 24, 33 24, 33 72 C 33 108, 76 134, 99 161" stroke="#87CEEB" stroke-width="2.2" stroke-dasharray="4 5" stroke-linecap="round"/>
+                <circle cx="100" cy="165" r="6" fill="#1E3A5F"/>
+                <circle cx="100" cy="165" r="2.5" fill="#87CEEB"/>
+              </g>
+
+              <!-- VUELTA 2+ (Para Hiladas 6 en adelante): Entrelazado interior de crochet y constelación azul -->
+              <g id="loomExtraRoundsGroup" filter="url(#loomStitchShadow)">
+                <path class="loom-extra-stitch" d="M 52 62 Q 100 92, 152 62" stroke="#87CEEB" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round" opacity="0"/>
+                <path class="loom-extra-stitch" d="M 46 88 Q 100 118, 154 88" stroke="#7B5EA7" stroke-width="2.2" stroke-dasharray="6 4" stroke-linecap="round" opacity="0"/>
+                <path class="loom-extra-stitch" d="M 64 115 Q 100 138, 136 115" stroke="#0047AB" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round" opacity="0"/>
+                <path class="loom-extra-stitch" d="M 72 42 Q 100 110, 128 135" stroke="#87CEEB" stroke-width="1.8" stroke-dasharray="4 5" stroke-linecap="round" opacity="0"/>
+                <path class="loom-extra-stitch" d="M 128 42 Q 100 110, 72 135" stroke="#7B5EA7" stroke-width="1.8" stroke-dasharray="4 5" stroke-linecap="round" opacity="0"/>
+              </g>
+
+              <!-- AGUJA / PUNTO DE TEJIDO ACTIVO EN EL TELAR -->
+              <g id="loomActiveNeedle" transform="translate(160, 40)" filter="url(#needleGlowFilter)">
+                <circle cx="0" cy="0" r="8" fill="rgba(135, 206, 235, 0.35)" class="loom-needle-pulse"/>
+                <circle cx="0" cy="0" r="4.5" fill="#87CEEB" stroke="#1E3A5F" stroke-width="1.5"/>
+              </g>
+            </svg>
+            <span class="loom-percent-pill" id="loomPercentBadge">Puntada 1 de 5 · 20% tejido</span>
           </div>
-          <div class="card-actions">
-            <button class="btn-outline" onclick="toggleChapter('more-cap1', this)">Leer más</button>
-            <button class="btn-audio" data-default-label="Escuchar Capítulo 1" onclick="simulateAudio(this, 'Capítulo 1: Dos niños, un diagnóstico')">
-              <span>▶</span> Escuchar Capítulo 1
-            </button>
+
+          <div class="loom-info">
+            <div class="loom-badge">
+              <span>🪡</span>
+              <span id="loomStatusHeader">El Telar de Hilos Azules · En construcción semanal</span>
+            </div>
+            <h3>Nuestro logo se teje con cada Hilada</h3>
+            <p>
+              Cada semana, al publicar una nueva <strong>Hilada</strong> de nuestra historia, damos una nueva puntada para construir el <strong>Corazón de Hilos Azules</strong>. El telar es evolutivo: a medida que se sumen nuevos capítulos, el corazón se teje en su contorno y luego entrelaza su interior vuelta tras vuelta:
+            </p>
+            <div class="loom-stage-desc" id="loomStageExplanation">
+              <strong>Puntada 1 (Hilada 1 · Publicada):</strong> Nace el nudo superior, las ondas del mundo azul y el primer trazo firme del corazón.
+            </div>
+            <div class="loom-steps-grid" id="loomStepsButtons"></div>
           </div>
         </div>
+      </div>
 
-        <div class="yarn-node">02</div>
+      <!-- CONTENEDOR DINÁMICO DE LA HILADA EN PERSPECTIVA (Hoy: Hilada 2) -->
+      <div id="perspectiveHiladaContainer" style="display: contents;"></div>
 
-        <div class="chapter-illustration">
-          <div class="amigurumi-frame amigurumi-frame-photo">
-            <div class="amigurumi-photo-inner">
-              <img src="Andrea_right.jpeg" alt="Andrea en tejido amigurumi hiperrealista" class="amigurumi-story-img" loading="lazy">
-              <div class="yarn-corner-stitch tl">🧶</div>
-              <div class="yarn-corner-stitch tr">✨</div>
-              <div class="yarn-corner-stitch br">💙</div>
-            </div>
-            <div class="amigurumi-caption">De la estructura a la guía amorosa: Andrea junto a Gabo y Jero.</div>
-          </div>
+      <!-- PEQUEÑOS NUDOS INDICADORES AL FINAL DEL CAMINO (Hoy: Hiladas 3, 4 y 5) -->
+      <div class="future-knots-section" id="futureKnotsSection">
+        <div class="future-knots-header">
+          <span>🧶 Próximas puntadas en la madeja</span>
+          <h3>Hiladas que desenredaremos en las siguientes semanas</h3>
         </div>
-      </article>
-
-      <!-- PARADA 3: CAPÍTULO 2 -->
-      <article class="chapter-row">
-        <div class="chapter-card">
-          <span class="chapter-tag">Capítulo 2</span>
-          <h2>Las alarmas silenciosas y la llegada de Jero</h2>
-          <p>
-            Como mamá primeriza seguía aplicaciones de crianza mes a mes. Al llegar al mes 10, la notificación decía que Gabo ya debía decir <em>hola</em> y <em>chao</em> con la manito… y él no lo hacía. A veces reaccionaba a su nombre y otras veces no.
-          </p>
-          <blockquote class="chapter-quote">
-            “Mientras vivía con estas alarmas en la cabeza intentando descifrar qué pasaba, a los seis meses de nacido Gabo me enteré de que ya crecía en mí Jero.”
-          </blockquote>
-          <div class="chapter-more" id="more-cap2">
-            <div class="chapter-more-inner">
-              <p>
-                Intentando calmar el miedo que crecía en el pecho, me repetía: <em>'No pasa nada, cada niño lleva su propio ritmo'</em>. En medio de las dudas y con un nuevo embarazo en marcha, el mundo se ponía de colores que aún no alcanzaba a comprender.
-              </p>
-            </div>
-          </div>
-          <div class="card-actions">
-            <button class="btn-outline" onclick="toggleChapter('more-cap2', this)">Leer más</button>
-            <button class="btn-audio" data-default-label="Escuchar Capítulo 2" onclick="simulateAudio(this, 'Capítulo 2: Las alarmas silenciosas')">
-              <span>▶</span> Escuchar Capítulo 2
-            </button>
-          </div>
-        </div>
-
-        <div class="yarn-node">03</div>
-
-        <div class="chapter-illustration">
-          <div class="amigurumi-frame amigurumi-frame-photo">
-            <div class="amigurumi-photo-inner">
-              <img src="cap_hermanitos.jpg" alt="Gabo y Jero como pequeños príncipes en amigurumi sobre su planeta azul" class="amigurumi-story-img" loading="lazy">
-              <div class="yarn-corner-stitch tl">👑</div>
-              <div class="yarn-corner-stitch tr">✨</div>
-              <div class="yarn-corner-stitch br">💜</div>
-            </div>
-            <div class="amigurumi-caption">Dos hermanitos separados por solo un año y dos meses en su universo azul.</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- PARADA 4: CAPÍTULO 3 -->
-      <article class="chapter-row reverse">
-        <div class="chapter-card">
-          <span class="chapter-tag">Capítulo 3</span>
-          <h2>El instinto que no se equivoca y el peso del silencio</h2>
-          <p>
-            Antes de ir al control del año con el neurólogo, mi instinto de madre y psicóloga ya lo sabía. Un día miré a mi esposo y le pregunté: <em>“¿Nuestro hijo es autista?”</em>. No hacía señas con su manita y era extremadamente selectivo con la alimentación.
-          </p>
-          <blockquote class="chapter-quote">
-            “Ese silencio es lo que más me ha marcado: no escuchar un ‘mamá, hola’, o el más soñado ‘te amo’. Ese silencio duele todos los días, pero también es el motor que nos sostiene.”
-          </blockquote>
-          <div class="chapter-more" id="more-cap3">
-            <div class="chapter-more-inner">
-              <p>
-                Recuerdo cuando Gabo balbuceaba y mi esposo preguntó con ilusión: <em>'¿Ya va a hablar?'</em>. Nunca ha generado palabras o frases de conexión, pero hemos aprendido a escucharnos con el alma y a tejernos más allá de la voz.
-              </p>
-            </div>
-          </div>
-          <div class="card-actions">
-            <button class="btn-outline" onclick="toggleChapter('more-cap3', this)">Leer más</button>
-            <button class="btn-audio" data-default-label="Escuchar Capítulo 3" onclick="simulateAudio(this, 'Capítulo 3: El instinto y el peso del silencio')">
-              <span>▶</span> Escuchar Capítulo 3
-            </button>
-          </div>
-        </div>
-
-        <div class="yarn-node">04</div>
-
-        <div class="chapter-illustration">
-          <div class="amigurumi-frame amigurumi-frame-photo">
-            <div class="amigurumi-photo-inner">
-              <img src="cap_silencio.jpg" alt="Andrea y Gabo mirándose con amor unidos por hilos luminosos en crochet 3D" class="amigurumi-story-img" loading="lazy">
-              <div class="yarn-corner-stitch tl">🧶</div>
-              <div class="yarn-corner-stitch tr">🌟</div>
-              <div class="yarn-corner-stitch br">💙</div>
-            </div>
-            <div class="amigurumi-caption">Cuando las palabras callan, los hilos del amor hablan más fuerte.</div>
-          </div>
-        </div>
-      </article>
+        <div class="future-knots-list" id="futureKnotsList"></div>
+      </div>
 
     </div>
   </section>
@@ -1506,22 +1896,29 @@
   <!-- CIERRE: EL CORAZÓN DE HILOS AZULES -->
   <footer class="heart-finale" id="comunidad">
     <div class="heart-logo-showcase">
-      <!-- Isotipo oficial recreado fielmente en SVG -->
+      <!-- Isotipo oficial sincronizado con el progreso de las Hiladas -->
       <svg viewBox="0 0 200 180" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ondas suaves de fondo -->
-        <path d="M 10 55 Q 55 5, 100 55 T 190 55" stroke="#1E3A5F" stroke-width="1.5" opacity="0.35"/>
-        <path d="M 10 70 Q 50 30, 95 95 T 190 50" stroke="#7B5EA7" stroke-width="1.5" opacity="0.45"/>
-        <path d="M 10 105 Q 60 140, 115 125 T 190 95" stroke="#87CEEB" stroke-width="2" opacity="0.7"/>
-        <!-- Corazón tejido de Hilos Azules -->
-        <path d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" 
-              stroke="#1E3A5F" stroke-width="4.5" stroke-linecap="round"/>
-        <path d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" 
-              stroke="#7B5EA7" stroke-width="3" stroke-linecap="round"/>
-        <path d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" 
-              stroke="#0047AB" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <!-- Guía punteada del corazón completo -->
+        <g opacity="0.24">
+          <path d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" stroke="#1E3A5F" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round"/>
+          <path d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" stroke="#7B5EA7" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+          <path d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" stroke="#0047AB" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round"/>
+        </g>
+        <!-- Ondas suaves de fondo (Etapa 1) -->
+        <path d="M 10 55 Q 55 5, 100 55 T 190 55" stroke="#1E3A5F" stroke-width="1.5" opacity="0.45"/>
+        <path d="M 10 70 Q 50 30, 95 95 T 190 50" stroke="#7B5EA7" stroke-width="1.5" opacity="0.55"/>
+        <path d="M 10 105 Q 60 140, 115 125 T 190 95" stroke="#87CEEB" stroke-width="2.2" opacity="0.8"/>
+        <path d="M 100 58 C 108 30, 142 22, 160 40" stroke="#1E3A5F" stroke-width="4.5" stroke-linecap="round"/>
+        <!-- Etapas 2 a 5 en el cierre -->
+        <path id="footerHeartStage2" d="M 100 58 C 112 18, 172 18, 172 72 C 172 112, 125 138, 100 165" 
+              stroke="#1E3A5F" stroke-width="4.5" stroke-linecap="round" opacity="0.18"/>
+        <path id="footerHeartStage3" d="M 103 58 C 115 22, 168 22, 168 72 C 168 110, 123 135, 102 162" 
+              stroke="#7B5EA7" stroke-width="3" stroke-linecap="round" opacity="0.18"/>
+        <path id="footerHeartStage4" d="M 100 58 C 88 18, 28 18, 28 72 C 28 112, 75 138, 100 165" 
+              stroke="#0047AB" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" opacity="0.18"/>
         <!-- Puntos de nudo -->
         <circle cx="100" cy="58" r="5.5" fill="#1E3A5F"/>
-        <circle cx="100" cy="165" r="5.5" fill="#1E3A5F"/>
+        <circle id="footerHeartStage5" cx="100" cy="165" r="5.5" fill="#1E3A5F" opacity="0.22"/>
       </svg>
     </div>
 
@@ -1529,15 +1926,15 @@
     <p class="serif-quote" style="font-size: 1.45rem; margin-bottom: 1rem;">
       “El arte de acompañarnos en el mundo azul”
     </p>
-    <p>
-      Aquí termina de desenrollarse el primer tramo de nuestra madeja, pero cada semana tejemos un nuevo capítulo. Si estás viviendo este proceso, no estás sola ni solo.
+    <p id="footerSummaryText">
+      Aquí dimos la primera puntada de nuestra madeja con la <strong>Hilada 1</strong>, y cada semana tejemos un nuevo capítulo y un nuevo trazo de nuestro corazón. Si estás viviendo este proceso, no estás sola ni solo.
     </p>
 
     <div class="newsletter-box">
-      <h3>Recibe el Capítulo 4 la próxima semana</h3>
-      <p style="font-size: 0.9rem; margin-top: 0.3rem;">Únete a nuestra comunidad de familias y caminemos juntos sin filtros.</p>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a Hilos Azules! Te acompañaremos cada semana con un nuevo capítulo.');">
-        <input type="email" placeholder="Escribe tu correo electrónico..." required />
+      <h3 id="newsletterTitle">Recibe la Hilada 2 la próxima semana</h3>
+      <p style="font-size: 0.9rem; margin-top: 0.3rem;">Únete a nuestra comunidad de familias y caminemos juntos semana tras semana, sin filtros.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por unirte a Hilos Azules! Te acompañaremos cada semana con una nueva Hilada.');">
+        <input type="email" id="newsletterEmailInput" placeholder="Escribe tu correo electrónico..." required />
         <button type="submit" class="btn-cta">Tejer Juntos</button>
       </form>
     </div>
@@ -1549,13 +1946,446 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- ARQUITECTURA DE MOVIMIENTO, SCROLLYTELLING Y AUDIO -->
+  <!-- ARQUITECTURA DE MOVIMIENTO, LANZAMIENTO SEMANAL DE HILADAS, TELAR DEL LOGO Y AUDIO -->
   <script>
     // Registro oficial de ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
     // Detección de preferencia de movimiento reducido por accesibilidad
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ==========================================================================
+    // 0. MOTOR DE PUBLICACIÓN SEMANAL DE HILADAS Y TELAR DEL LOGO (HILADA 1 A 5)
+    // ==========================================================================
+    // Cambia HILADA_ACTUAL de 1 a 2, 3, 4 o 5 cada semana (o usa ?hilada=2 en la URL para previsualizar)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramHilada = parseInt(urlParams.get('hilada'), 10);
+    const HILADA_ACTUAL = (!isNaN(paramHilada) && paramHilada >= 1 && paramHilada <= 5) ? paramHilada : 1;
+
+    const HILADAS_DATA = [
+      {
+        num: 1,
+        nodeLabel: '01',
+        tag: 'Hilada 1 · Primer trazo en el telar',
+        title: 'Dos niños, un diagnóstico y el dolor que no se maquilla',
+        leadHtml: `
+          <p>
+            Primer trazo en el telar. Bienvenidos a este espacio. Como les conté, antes de dar consejos o hablar de herramientas, quiero que me conozcan y conozcas a <strong>Gabo y Jero</strong>. Hoy damos la primera puntada de esta historia.
+          </p>
+          <p style="margin-top: 0.65rem;">
+            Soy <strong>Andrea Flórez Pulecio</strong>, Psicóloga y, desde hace más de 20 años, he estado trabajando en el ámbito de la estructura, de los procesos, del talento humano... Pero nada, absolutamente nada de eso, te prepara para el día en que la vida te cambia de rumbo. Hoy soy mamá de dos niños con autismo nivel 3, también conocido como severo. Y sé que lo primero que muchos pensarán al escucharme es: <em>‘¿Dos?’</em>. Sí, dos.
+          </p>
+        `,
+        quote: '“¿Lo he aceptado? Sí, lo he aceptado. ¿Para qué? Para poder acompañar a mis hijos en el proceso, para estar presente, para ser su guía. Pero que quede algo claro: no ha dejado de doler ni un solo momento.”',
+        moreHtml: `
+          <p>
+            Cuando nace Gabo, que hoy tiene 5 años, me imaginé mil cosas para su vida y para la nuestra, menos vivir esta aventura. Una aventura que, aunque duele, he aprendido a transitar y a aprender de ella; al año y dos meses llega Jero, con quien tampoco imaginé nada de lo que hemos vivido.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            Te preguntarás: <em>‘¿Es fácil?’</em>. No, no es fácil. <em>‘¿Te ha dolido, Andrea?’</em>. Sí, me ha dolido, cada día. Y aquí quiero ser totalmente honesta con ustedes, porque no vine a maquillar la realidad.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            No voy a mentirles: me duele… lo he llorado… lo he rechazado. ¿Cuántas veces me he preguntado <em>‘¿Por qué a nosotros?’</em>, <em>‘¿Qué hice?’</em>, <em>‘¿Existe un Dios?’</em>... Y las preguntas que más se me clavan: <em>‘¿Por qué mis nenes? ¿Los dos? ¿En serio dos?’</em>. Entonces lo he aceptado, sí, para poder estar con ellos y fortalecer su proceso. Pero que quede algo claro: no ha dejado de doler ni un solo momento.
+          </p>
+        `,
+        teaserText: 'Primer trazo en el telar. Bienvenidos a este espacio. Como les conté, antes de dar consejos o hablar de herramientas, quiero que me conozcan y conozcas a Gabo y Jero...',
+        img: 'Andrea_right.jpeg',
+        imgAlt: 'Andrea en tejido amigurumi hiperrealista',
+        caption: 'De la estructura a la guía amorosa: la primera puntada sin filtros de Andrea.',
+        stitches: ['🧶', '✨', '💙'],
+        loomNeedle: { x: 160, y: 40 },
+        loomDesc: '<strong>Puntada 1 (Hilada 1 · Publicada):</strong> Nace el nudo superior, las ondas del mundo azul y el primer trazo firme del corazón.',
+        knotScheduleLabel: 'Puntada 1/5 · 20% del corazón'
+      },
+      {
+        num: 2,
+        nodeLabel: '02',
+        tag: 'Hilada 2 · Segunda puntada en la madeja',
+        title: 'Las alarmas silenciosas y la llegada de Jero',
+        leadHtml: `
+          <p>
+            Damos la segunda puntada en nuestra madeja. Hoy quiero contarles cómo inicié a notar las alarmas en Gabo, que es mi nene mayor. Muy temprano, ¿saben? Como mamá primeriza, seguía páginas y me inscribí en diferentes aplicaciones de crianza.
+          </p>
+          <p style="margin-top: 0.65rem;">
+            Cada mes me llegaba una notificación: <em>‘Tu hijo de tantos meses hace esto, reacciona así, genera aquello’</em>. Al llegar al mes 10, hubo algo que de una vez me impactó: una de las aplicaciones decía que ya debía hacer con la manito el <em>hola</em> y el <em>chao</em>, y Gabo no lo hacía.
+          </p>
+        `,
+        quote: '“Mientras vivía con estas alarmas en la cabeza, intentando descifrar qué pasaba... seguía creciendo en mí Jero. A los seis meses de nacido Gabo me enteré de su embarazo; la vida se nos venía encima a una velocidad impresionante.”',
+        moreHtml: `
+          <p>
+            <strong>¡Las dudas y el instinto!</strong> Otra gran alarma fue que a veces parecía sordo. A veces reaccionaba a su nombre y otras veces no. Pero en ese momento, intentando calmar el miedo que ya empezaba a crecer en el pecho, me decía a mí misma: <em>‘No pasa nada, todos los niños son distintos, cada uno lleva su propio ritmo’</em>.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            En medio de las dudas con Gabo y con un nuevo embarazo en marcha, el mundo se ponía de colores que aún no alcanzaba a comprender. Gracias por acompañarme a abrir esta puerta. Nos vemos la próxima semana para dar la siguiente puntada en esta historia.
+          </p>
+        `,
+        teaserText: '“Damos la segunda puntada en nuestra madeja. Hoy quiero contarles cómo inicié a notar las alarmas en Gabo, que es mi nene mayor. Muy temprano, ¿saben? Como mamá primeriza, seguía páginas, me inscribí en diferentes aplicaciones de crianza… Al llegar al mes 10, hubo algo que de una vez me impactó…”',
+        img: 'cap_hermanitos.jpg',
+        imgAlt: 'Gabo y Jero como pequeños príncipes en amigurumi sobre su planeta azul',
+        caption: 'Dos hermanitos separados por solo un año y dos meses en su universo azul.',
+        stitches: ['👑', '✨', '💜'],
+        loomNeedle: { x: 100, y: 165 },
+        loomDesc: '<strong>Puntada 2 (Hilada 2 · Próxima semana):</strong> Se teje completo el arco derecho en Azul Profundo descendiendo hasta la base del corazón.',
+        knotScheduleLabel: 'Puntada 2/5 · 40% del corazón'
+      },
+      {
+        num: 3,
+        nodeLabel: '03',
+        tag: 'Hilada 3 · Tercera puntada en la madeja',
+        title: 'El instinto que no se equivoca y el peso del silencio',
+        leadHtml: `
+          <p>
+            Al año tuvimos nuestro primer control con neurólogo. Gabo iba perfecto: gateó, sostuvo su cabeza, giró... hizo todo lo que hace un bebé de su edad. Pero desde antes de ir al neurólogo, yo ya lo sabía: mi hijo era autista.
+          </p>
+          <p style="margin-top: 0.65rem;">
+            Lo observaba demasiado, investigaba sin descanso. No sé si fue el instinto de madre, la formación de psicóloga o las lecturas, pero un día le dije a mi esposo: <em>“¿Nuestro hijo es autista?”</em>.
+          </p>
+        `,
+        quote: '“Ese silencio es lo que más me ha marcado... No escuchar un ‘mamá, hola’, un ‘mamá, chao’, un ‘tengo hambre’ o un ‘quiero’. Lo más soñado: ‘Te amo’.”',
+        moreHtml: `
+          <p>
+            <strong>¡Las alarmas rojas!</strong> Le di mis puntos a mi esposo, las señales claras: no hacía con la manita <em>hola</em>, no hacía <em>chao</em>. Además, era súper selectivo con la alimentación. ¡Alarma roja, roja, súper roja! Y aunque mi mente analizaba las señales, por dentro guardaba la esperanza de que no fuera así. Le suplicaba a Dios que me equivocara.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            Recuerdo que Gabo era súper galgón, balbuceaba mucho, y nunca olvidaré lo que dijo mi esposo en ese entonces: <em>“¿Ya va a hablar?”</em>. No, nunca lo ha realizado. Y no, no genera palabras y/o frases de conexión… Gracias por estar aquí y escuchar esta primera parte de mi historia. Nos vemos la próxima semana para seguir tejiendo con más lana esta historia.
+          </p>
+        `,
+        teaserText: '“Al año tuvimos nuestro primer control con neurólogo. Gabo iba perfecto: gateó, sostuvo su cabeza, giró... Pero desde antes de ir al neurólogo, yo ya lo sabía. Lo observaba demasiado, investigaba sin descanso…”',
+        img: 'cap_silencio.jpg',
+        imgAlt: 'Andrea y Gabo mirándose con amor unidos por hilos luminosos en crochet 3D',
+        caption: 'Cuando las palabras callan, los hilos del amor hablan más fuerte.',
+        stitches: ['🧶', '🌟', '💙'],
+        loomNeedle: { x: 102, y: 162 },
+        loomDesc: '<strong>Puntada 3 (Hilada 3 · Semana 3):</strong> Se entrelaza la hebra interior Violeta que acompaña y sostiene con ternura el arco derecho.',
+        knotScheduleLabel: 'Puntada 3/5 · 60% del corazón'
+      },
+      {
+        num: 4,
+        nodeLabel: '04',
+        tag: 'Hilada 4 · Cuarta puntada en la madeja',
+        title: 'Los test, los exámenes médicos y el inicio de un camino a los 17 meses',
+        leadHtml: `
+          <p>
+            Como les conté en la hilada anterior, mi corazón de madre ya sabía lo que estaba pasando con Gabo. Aun así, había que seguir los protocolos médicos. Iniciamos con pediatría y luego llegamos al neuropediatra.
+          </p>
+          <p style="margin-top: 0.65rem;">
+            El especialista nos hizo unos test de autismo a mi esposo y a mí, por separado. Cuando el médico los calificó, nos socializó los resultados: de 20 puntos posibles, Rubén marcó 12 y yo marqué 15. Esos puntajes dejaban a nuestro nene con alarmas rojas de autismo.
+          </p>
+        `,
+        quote: '“Con los resultados en la mano y las alarmas sobre la mesa, la neuropediatra nos hizo una solicitud directa que se sintió gigante y abrumadora: iniciar su etapa escolar con tan solo 17 meses.”',
+        moreHtml: `
+          <p>
+            A partir de ahí, arrancó toda una ronda de nuevos estudios médicos para descartar cualquier otra cosa: le mandaron resonancia en su cabeza y en su columna, exámenes de genética y pruebas de ondas en sus oídos para descartar sordera. Gracias a Dios, cada uno de esos resultados salió bien.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            Un bebé de apenas un año y cinco meses ingresando al jardín, enfrentándose a un mundo que para él iba a ser abrumador, mientras nosotros intentábamos aprender a navegar en este universo desconocido. Gracias por estar aquí y caminar conmigo en este recorrido. Nos vemos la próxima semana para seguir desenredando nuestra madeja.
+          </p>
+        `,
+        teaserText: '“Como les conté en la hilada anterior, mi corazón de madre ya sabía lo que estaba pasando con Gabo. Aun así, había que seguir los protocolos médicos. Iniciamos con pediatría y luego llegamos al neuropediatra…”',
+        img: 'cap_examenes.jpg',
+        imgAlt: 'Andrea abrazando a Gabo rodeados de ondas de latido e hilos protectores en crochet 3D',
+        caption: 'Abrazando cada examen médico y cada paso hacia lo desconocido a los 17 meses.',
+        stitches: ['🩺', '✨', '💙'],
+        loomNeedle: { x: 28, y: 72 },
+        loomDesc: '<strong>Puntada 4 (Hilada 4 · Semana 4):</strong> Comienza a tejerse el arco izquierdo con puntadas de crochet en Azul Cobalto.',
+        knotScheduleLabel: 'Puntada 4/5 · 80% del corazón'
+      },
+      {
+        num: 5,
+        nodeLabel: '05',
+        tag: 'Hilada 5 · Quinta puntada en la madeja',
+        title: 'El gran salto al jardín a los 17 meses y la mañana más larga del mundo',
+        leadHtml: `
+          <p>
+            Iniciamos esta aventura con Jero formándose en la barriguita y nosotros buscando un jardín para Gabo, con la esperanza de ver cómo le iba con la socialización y esperando cómo iniciaría este camino que nos daba miedo, pero también alegría.
+          </p>
+          <p style="margin-top: 0.65rem;">
+            Dicen los pediatras que los niños son como esponjitas; quizás, pensábamos, lograría tener un buen avance. Iniciamos el recorrido por varios jardines... bueno, ni tantos, en total fueron cinco o bueno, sí fueron varios 🤭. Y nos dejamos encantar por el más grande: bilingüe, con unas instalaciones de ensueño.
+          </p>
+        `,
+        quote: '“Llegó el gran día: en enero de 2022, nuestro nene iniciaba su jardín. Nos fuimos, y fue la mañana más larga de mi vida... queriendo que llegara pronto la hora para bajar a recibirlo en la ruta.”',
+        moreHtml: `
+          <p>
+            Como papás primerizos, lo llevamos y lo recibieron en la puerta como a personajes animados, con una fila de docentes esperándolo. ¿Quieren saber si lloró? Pues sí, un tris, no quería quedarse. Pero lo alzaron, se calmó súper rápido, increíble, y entró a su primer día de clase.
+          </p>
+          <p style="margin-top: 0.7rem;">
+            De verdad, no se imaginan... ya estaba en el apartamento queriendo que llegara pronto la hora para bajar a recibirlo en la ruta. Gracias por acompañarme a vivir este recuerdo. Nos vemos la próxima semana para seguir desenredando nuestra madeja.
+          </p>
+        `,
+        teaserText: '“Iniciamos esta aventura con Jero formándose en la barriguita y nosotros buscando un jardín para Gabo, con la esperanza de ver cómo le iba con la socialización y esperando cómo iniciaría este camino que nos daba miedo, pero también alegría…”',
+        img: 'cap_jardin.jpg',
+        imgAlt: 'Pequeño Gabo con su morral tejido frente a la puerta del jardín conectado al corazón de su mamá',
+        caption: 'Enero de 2022: el primer día de jardín y un hilo invisible que jamás se suelta.',
+        stitches: ['🎒', '🌟', '💜'],
+        loomNeedle: { x: 100, y: 165 },
+        loomDesc: '<strong>Puntada 5 (Hilada 5 · Vuelta 1 completa):</strong> Se cierra el nudo inferior con destellos Azul Cielo, completando el contorno del corazón.',
+        knotScheduleLabel: 'Puntada 5 · Contorno del corazón'
+      }
+      /* ========================================================================
+         PLANTILLA PARA AGREGAR NUEVAS HILADAS (HILADA 6, 7, 8...):
+         Simplemente pega un nuevo bloque aquí abajo; el camino, los botones
+         y el Telar del Logo se recalcularán automáticamente:
+         ========================================================================
+      ,{
+        num: 6,
+        nodeLabel: '06',
+        tag: 'Hilada 6 · Sexta puntada en la madeja',
+        title: 'Título de la Hilada 6',
+        leadHtml: `<p>Primeros párrafos visibles de la Hilada 6...</p>`,
+        quote: '“Frase destacada de la Hilada 6...”',
+        moreHtml: `<p>Resto del relato que se despliega en Leer más...</p>`,
+        teaserText: '“Primeras líneas de adelanto cuando esta Hilada esté en perspectiva...”',
+        img: 'nombre_imagen.jpg',
+        imgAlt: 'Descripción de la ilustración en crochet',
+        caption: 'Pie de foto de la ilustración.',
+        stitches: ['🧶', '✨', '💙']
+      }
+      */
+    ];
+
+    function renderHiladasAndLoom() {
+      const totalHiladas = HILADAS_DATA.length;
+      const currentHilada = Math.max(1, Math.min(totalHiladas, HILADA_ACTUAL));
+      const pubContainer = document.getElementById('publishedHiladasContainer');
+      const perspContainer = document.getElementById('perspectiveHiladaContainer');
+      const futureSection = document.getElementById('futureKnotsSection');
+      const futureList = document.getElementById('futureKnotsList');
+      const loomButtonsContainer = document.getElementById('loomStepsButtons');
+
+      if (!pubContainer || !perspContainer) return;
+
+      // 0. Generar dinámicamente los botones de puntadas del Telar (1 .. totalHiladas)
+      if (loomButtonsContainer) {
+        let btnsHtml = '';
+        for (let i = 0; i < totalHiladas; i++) {
+          const h = HILADAS_DATA[i];
+          const isWoven = h.num <= currentHilada;
+          const isNext = h.num === currentHilada + 1;
+          const icon = isWoven ? '✓' : (isNext ? '⏳' : (h.num === totalHiladas ? '💙' : '🔒'));
+          const stateLabel = h.num === currentHilada ? ' (Hoy)' : (isNext ? ' (Próxima)' : '');
+          btnsHtml += `
+            <button type="button" class="loom-step-btn ${isWoven ? 'woven' : ''} ${isNext ? 'next-up' : ''}" data-step="${h.num}" onclick="previewLoomStep(${h.num}, true)">
+              <span>${icon}</span> Puntada ${h.num} · Hilada ${h.num}${stateLabel}
+            </button>
+          `;
+        }
+        loomButtonsContainer.innerHTML = btnsHtml;
+      }
+
+      // 1. Renderizar Hiladas publicadas (1 .. currentHilada)
+      let pubHtml = '';
+      for (let i = 0; i < currentHilada; i++) {
+        const h = HILADAS_DATA[i];
+        const isRev = (h.num % 2 === 1) ? 'reverse' : '';
+        pubHtml += `
+          <article class="chapter-row ${isRev}" id="hilada-${h.num}">
+            <div class="chapter-card">
+              <span class="chapter-tag">${h.tag}</span>
+              <h2>Hilada ${h.num}: ${h.title}</h2>
+              ${h.leadHtml}
+              <blockquote class="chapter-quote">${h.quote}</blockquote>
+              <div class="chapter-more" id="more-hilada-${h.num}">
+                <div class="chapter-more-inner">
+                  ${h.moreHtml}
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="btn-outline" data-more-label="Leer Hilada ${h.num} completa" onclick="toggleChapter('more-hilada-${h.num}', this)">Leer Hilada ${h.num} completa</button>
+                <button class="btn-audio" data-default-label="Escuchar Hilada ${h.num}" onclick="simulateAudio(this, 'Hilada ${h.num}: ${h.title.replace(/'/g, "\\'")}')">
+                  <span>▶</span> Escuchar Hilada ${h.num}
+                </button>
+              </div>
+            </div>
+
+            <div class="yarn-node">${h.nodeLabel}</div>
+
+            <div class="chapter-illustration">
+              <div class="amigurumi-frame amigurumi-frame-photo">
+                <div class="amigurumi-photo-inner">
+                  <img src="${h.img}" alt="${h.imgAlt}" class="amigurumi-story-img" loading="lazy">
+                  <div class="yarn-corner-stitch tl">${(h.stitches && h.stitches[0]) || '🧶'}</div>
+                  <div class="yarn-corner-stitch tr">${(h.stitches && h.stitches[1]) || '✨'}</div>
+                  <div class="yarn-corner-stitch br">${(h.stitches && h.stitches[2]) || '💙'}</div>
+                </div>
+                <div class="amigurumi-caption">${h.caption}</div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+      pubContainer.innerHTML = pubHtml;
+
+      // 2. Renderizar la siguiente Hilada en Perspectiva (currentHilada + 1)
+      if (currentHilada < totalHiladas) {
+        const nextH = HILADAS_DATA[currentHilada];
+        const isRev = (nextH.num % 2 === 1) ? 'reverse' : '';
+        perspContainer.innerHTML = `
+          <article class="chapter-row ${isRev} perspective-row" id="perspectiva-hilada-${nextH.num}">
+            <div class="chapter-card perspective-card">
+              <span class="chapter-tag tag-perspective">⏳ Perspectiva · Próxima Semana · Puntada ${nextH.num} de ${totalHiladas}</span>
+              <h2>Hilada ${nextH.num}: ${nextH.title}</h2>
+              <div class="perspective-teaser-wrap">
+                <p class="perspective-teaser-text">${nextH.teaserText}</p>
+              </div>
+              <div class="perspective-veil-notice">
+                <span>🪡</span>
+                <span>Esta Hilada está en el telar y se desenredará la próxima semana junto con la <strong>Puntada ${nextH.num}</strong> de nuestro logo.</span>
+              </div>
+              <div class="card-actions">
+                <button type="button" class="btn-outline" onclick="previewLoomStep(${nextH.num}, true); document.getElementById('telar-logo').scrollIntoView({ behavior: 'smooth', block: 'center' });">
+                  ✨ Ver qué tejerá en el logo
+                </button>
+                <a href="#comunidad" class="btn-audio" style="text-decoration: none;" onclick="setTimeout(() => document.getElementById('newsletterEmailInput')?.focus(), 600)">
+                  <span>🔔</span> Recibir Hilada ${nextH.num} al estrenarse
+                </a>
+              </div>
+            </div>
+
+            <div class="yarn-node node-perspective" title="Próxima puntada en el telar">${nextH.nodeLabel}</div>
+
+            <div class="chapter-illustration">
+              <div class="amigurumi-frame amigurumi-frame-photo perspective-frame">
+                <div class="amigurumi-photo-inner">
+                  <img src="${nextH.img}" alt="Adelanto de ${nextH.imgAlt}" class="amigurumi-story-img" loading="lazy">
+                  <div class="perspective-img-overlay">
+                    <span class="perspective-overlay-pill">🧶 En el telar · Estreno próxima semana</span>
+                  </div>
+                </div>
+                <div class="amigurumi-caption">Perspectiva de la Hilada ${nextH.num}: ${nextH.caption}</div>
+              </div>
+            </div>
+          </article>
+        `;
+      } else {
+        perspContainer.innerHTML = '';
+      }
+
+      // 3. Renderizar pequeños nudos indicadores al final del camino (Hiladas posteriores a currentHilada + 1)
+      if (currentHilada + 1 < totalHiladas && futureSection && futureList) {
+        futureSection.style.display = 'block';
+        let knotsHtml = '';
+        for (let j = currentHilada + 1; j < totalHiladas; j++) {
+          const fh = HILADAS_DATA[j];
+          const pctLabel = Math.round((fh.num / totalHiladas) * 100);
+          const scheduleTag = fh.knotScheduleLabel || `Puntada ${fh.num}/${totalHiladas} · ${pctLabel}% del corazón`;
+          knotsHtml += `
+            <div class="future-knot-item" onclick="previewLoomStep(${fh.num}, true)" style="cursor: pointer;" title="Haz clic para previsualizar la Puntada ${fh.num} en el Telar del Logo">
+              <div class="mini-knot-badge">${fh.nodeLabel}</div>
+              <div class="future-knot-meta">
+                <strong>Hilada ${fh.num}: ${fh.title}</strong>
+                <small>En la madeja · Se desenredará semana a semana</small>
+              </div>
+              <span class="future-knot-stitch-tag">🪡 ${scheduleTag}</span>
+            </div>
+          `;
+        }
+        futureList.innerHTML = knotsHtml;
+      } else if (futureSection) {
+        futureSection.style.display = 'none';
+      }
+
+      // 4. Sincronizar estado inicial del Telar del Logo y del Cierre (#comunidad)
+      previewLoomStep(currentHilada, false);
+
+      const newsletterTitle = document.getElementById('newsletterTitle');
+      const footerSummaryText = document.getElementById('footerSummaryText');
+      if (newsletterTitle) {
+        if (currentHilada < totalHiladas) {
+          newsletterTitle.textContent = `Recibe la Hilada ${currentHilada + 1} la próxima semana`;
+        } else {
+          newsletterTitle.textContent = `Acompáñanos en las próximas Hiladas de nuestro corazón`;
+        }
+      }
+      if (footerSummaryText) {
+        const pct = Math.round((currentHilada / totalHiladas) * 100);
+        footerSummaryText.innerHTML = `Hasta hoy hemos desenredado la <strong>Hilada ${currentHilada} de ${totalHiladas}</strong> (tejiendo el <strong>${pct}%</strong> del Corazón de Hilos Azules). Cada semana sumamos un nuevo capítulo y una nueva puntada. Si estás viviendo este proceso, no estás sola ni solo.`;
+      }
+    }
+
+    // Función evolutiva para visualizar cómo se teje el logo de Hilos Azules para cualquier cantidad de Hiladas
+    function previewLoomStep(targetStep, isUserPreview) {
+      const totalHiladas = HILADAS_DATA.length;
+      const currentHilada = Math.max(1, Math.min(totalHiladas, HILADA_ACTUAL));
+      const step = Math.max(1, Math.min(totalHiladas, targetStep));
+      const data = HILADAS_DATA[step - 1];
+
+      // Si hay 5 Hiladas o menos, cada una teje 1 etapa base; si se agregan más (6, 7, 8...),
+      // las primeras 5 tejen la Vuelta 1 (contorno) y las siguientes tejen la Vuelta 2+ (entrelazado interior)
+      for (let s = 1; s <= 5; s++) {
+        const stageGroup = document.getElementById(`loomStage${s}`);
+        if (stageGroup) {
+          const isVisible = s <= step;
+          const isPreviewOnly = s > currentHilada && s <= step;
+          gsap.to(stageGroup, {
+            opacity: isVisible ? (isPreviewOnly ? 0.65 : 1) : 0,
+            duration: 0.45,
+            ease: 'power2.out'
+          });
+        }
+
+        const footerStage = document.getElementById(`footerHeartStage${s}`);
+        if (footerStage) {
+          footerStage.setAttribute('opacity', s <= currentHilada ? '1' : '0.18');
+        }
+      }
+
+      // Hebras interiores adicionales para Hiladas 6 en adelante (Vuelta 2 de crochet)
+      const extraStitches = document.querySelectorAll('#loomExtraRoundsGroup .loom-extra-stitch');
+      extraStitches.forEach((stitchEl, idx) => {
+        const stitchStep = 6 + idx;
+        const showExtra = step >= stitchStep;
+        const isPreviewExtra = stitchStep > currentHilada && showExtra;
+        gsap.to(stitchEl, {
+          opacity: showExtra ? (isPreviewExtra ? 0.65 : 0.95) : 0,
+          duration: 0.45,
+          ease: 'power2.out'
+        });
+      });
+
+      // Mover la aguja luminosa a la coordenada de la puntada seleccionada
+      const needle = document.getElementById('loomActiveNeedle');
+      const fallbackCoords = [
+        { x: 160, y: 40 },
+        { x: 100, y: 165 },
+        { x: 102, y: 162 },
+        { x: 28, y: 72 },
+        { x: 100, y: 165 },
+        { x: 100, y: 78 },
+        { x: 100, y: 102 },
+        { x: 100, y: 126 }
+      ];
+      const coord = (data && data.loomNeedle) || fallbackCoords[(step - 1) % fallbackCoords.length];
+      if (needle && coord) {
+        gsap.to(needle, {
+          attr: { transform: `translate(${coord.x}, ${coord.y})` },
+          duration: 0.55,
+          ease: 'back.out(1.5)'
+        });
+      }
+
+      // Actualizar insignia de porcentaje y explicación
+      const badge = document.getElementById('loomPercentBadge');
+      const desc = document.getElementById('loomStageExplanation');
+      if (badge) {
+        const pct = Math.round((step / totalHiladas) * 100);
+        const suffix = step <= currentHilada ? 'tejido hoy' : 'previsualizando puntada futura';
+        badge.textContent = `Puntada ${step} de ${totalHiladas} · ${pct}% (${suffix})`;
+      }
+      if (desc && data) {
+        desc.innerHTML = data.loomDesc || `<strong>Puntada ${step} (Hilada ${step}):</strong> Nueva hebra entrelazada en el corazón de nuestra historia: <em>“${data.title}”</em>.`;
+      }
+
+      // Actualizar estado visual de los botones del telar
+      document.querySelectorAll('#loomStepsButtons .loom-step-btn').forEach((btn) => {
+        const bStep = parseInt(btn.getAttribute('data-step'), 10);
+        btn.classList.toggle('woven', bStep <= currentHilada);
+        btn.classList.toggle('next-up', bStep === currentHilada + 1);
+        btn.classList.toggle('previewing', isUserPreview && bStep === step && bStep > currentHilada);
+      });
+    }
+
+    // Ejecutar renderizado inicial de las Hiladas antes de configurar ScrollTrigger
+    renderHiladasAndLoom();
 
     // ==========================================================================
     // 1. LENIS SMOOTH SCROLL SINCRONIZADO CON GSAP TICKER & SCROLLTRIGGER
@@ -1748,7 +2578,7 @@
       const frame = row.querySelector('.amigurumi-frame');
 
       // 4.1 Pulso elástico y activación de cada .yarn-node cuando la punta del hilo lo cruza
-      if (node) {
+      if (node && !node.classList.contains('node-perspective')) {
         ScrollTrigger.create({
           trigger: node,
           start: 'top 66%',
@@ -1762,7 +2592,7 @@
             }
           },
           onLeaveBack: () => {
-            if (node.textContent.trim() !== '01') {
+            if (node.textContent.trim() !== '00') {
               node.classList.remove('active');
               if (!prefersReducedMotion) {
                 gsap.to(node, { scale: 1, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
@@ -1829,7 +2659,8 @@
       if (!content) return;
 
       const isOpen = content.classList.toggle('open');
-      btn.textContent = isOpen ? 'Mostrar menos' : 'Leer más';
+      const moreLabel = btn.getAttribute('data-more-label') || 'Leer más';
+      btn.textContent = isOpen ? 'Mostrar menos' : moreLabel;
 
       if (prefersReducedMotion) {
         content.style.height = isOpen ? 'auto' : '0px';
